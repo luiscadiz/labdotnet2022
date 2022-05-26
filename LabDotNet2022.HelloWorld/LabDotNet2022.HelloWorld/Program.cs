@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LabDotNet2022.HelloWorld
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
