@@ -42,6 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositorioOmnibus.cs" />
+    <Compile Include="RepositorioTaxi.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App_Transporte.Entidades\App_Transporte.Entidades.csproj">
+      <Project>{73c9b206-ed41-4135-a870-09a2b56b6b27}</Project>
+      <Name>App_Transporte.Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
