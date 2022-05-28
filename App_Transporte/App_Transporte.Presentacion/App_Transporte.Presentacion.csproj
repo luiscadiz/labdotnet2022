@@ -43,12 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\App_Transporte.Datos\App_Transporte.Datos.csproj">
+      <Project>{2dd04aa8-4fde-43de-9405-79649f77d129}</Project>
+      <Name>App_Transporte.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App_Transporte.Entidades\App_Transporte.Entidades.csproj">
+      <Project>{73c9b206-ed41-4135-a870-09a2b56b6b27}</Project>
+      <Name>App_Transporte.Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
