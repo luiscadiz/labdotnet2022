@@ -41,10 +41,16 @@ namespace App_Transporte.Presentacion
                         cargarTransporte(repositorioBus, repositorioTaxis);
                         break;
                     case 1:
+                        Console.WriteLine("");
+                        Console.WriteLine("---------------------------------------------------------");
+                        Console.WriteLine("************** TODOS LOS TRANSPORTES ********************");
+                        Console.WriteLine("---------------------------------------------------------");
+                        Console.WriteLine("");
                         repositorioBus.mostrarOmnibus();
                         Console.WriteLine(" ");
                         repositorioTaxis.mostrarTaxis();
                         Console.WriteLine("Presione una tecla para volver al menu");
+                        Console.WriteLine("");
                         Console.ReadKey();
                         break;
                 }
@@ -53,7 +59,7 @@ namespace App_Transporte.Presentacion
             Console.WriteLine("Adios...");
         }
 
-        static void cargarTransporte(RepositorioOmnibus repoBus, RepositorioTaxi repoTaxi)
+        private static void cargarTransporte(RepositorioOmnibus repoBus, RepositorioTaxi repoTaxi)
         {
             Console.Clear();
             int cantPasajeros;
