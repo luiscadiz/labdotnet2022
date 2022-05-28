@@ -9,7 +9,7 @@ namespace App_Transporte.Entidades
     public abstract class TransportePublico : ITransporte
     {
         private int _pasajeros;
-        public int Pasajeros { get => _pasajeros; set => _pasajeros = value; }
+        public int Pasajeros{ get => _pasajeros; set => _pasajeros = value; }
 
         public TransportePublico(int cantPasajeros)
         {

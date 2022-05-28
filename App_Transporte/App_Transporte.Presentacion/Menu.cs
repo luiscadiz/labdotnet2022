@@ -56,7 +56,7 @@ namespace App_Transporte.Presentacion
             {
                 //Se le vuelve a agregar las cordenadas iniciales para 
                 //asi en la proxima renderización de las opciones esta
-                //no lo cargue desde las ultimas cordenadas tomadas.
+                //no lo tome las ultimas cordenadas guardadas.
                 Console.CursorLeft = x;
                 Console.CursorTop = y;
                 DisplayOptions();
@@ -74,7 +74,7 @@ namespace App_Transporte.Presentacion
                     _selectedIndex++;
                 }
             } while (keyPressed != ConsoleKey.Enter);
-            // Clear();
+            Console.Clear();
         }
     }
 }
