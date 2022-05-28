@@ -33,7 +33,7 @@ namespace App_Transporte.Datos
                 else
                 {
                     contador++;
-                    Console.WriteLine($"Taxi {contador}: 0 pasajeros");
+                    Console.WriteLine($"Taxi {contador}: Sin pasajeros");
 
                 }
             }

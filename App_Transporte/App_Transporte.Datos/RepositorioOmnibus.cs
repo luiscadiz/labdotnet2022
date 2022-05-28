@@ -34,7 +34,7 @@ namespace App_Transporte.Datos
                 else
                 {
                     contador++;
-                    Console.WriteLine($"Omnibus {contador}: 0 pasajeros");
+                    Console.WriteLine($"Omnibus {contador}: Sin pasajeros");
                 }
             }
         }
