@@ -10,6 +10,7 @@ namespace App_Transporte.Presentacion
     {
         static void Main(string[] args)
         {
+            App.Start();
         }
     }
 }
