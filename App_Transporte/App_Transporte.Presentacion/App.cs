@@ -21,9 +21,8 @@ namespace App_Transporte.Presentacion
                                         | ___ \ |/ _ \ '_ \ \ / / _ \ '_ \| |/ _` |/ _ \ 
                                         | |_/ / |  __/ | | \ V /  __/ | | | | (_| | (_) |
                                         \____/|_|\___|_| |_|\_/ \___|_| |_|_|\__,_|\___/ 
-                                                                                                                                       
-                                        ";
 
+----(Use las flechas hacia abajo y arriba para navegar y presione enter para seleccionar)-----";
 
         public static void Start()
         {
@@ -41,16 +40,12 @@ namespace App_Transporte.Presentacion
                         cargarTransporte(repositorioBus, repositorioTaxis);
                         break;
                     case 1:
-                        Console.WriteLine("");
-                        Console.WriteLine("---------------------------------------------------------");
-                        Console.WriteLine("************** TODOS LOS TRANSPORTES ********************");
-                        Console.WriteLine("---------------------------------------------------------");
-                        Console.WriteLine("");
+                        mostrarTituloTransportes();
                         repositorioBus.mostrarOmnibus();
                         Console.WriteLine(" ");
                         repositorioTaxis.mostrarTaxis();
-                        Console.WriteLine("Presione una tecla para volver al menu");
                         Console.WriteLine("");
+                        Console.WriteLine("Presione una tecla para volver al menu");
                         Console.ReadKey();
                         break;
                 }
@@ -64,18 +59,22 @@ namespace App_Transporte.Presentacion
             Console.Clear();
             int cantPasajeros;
             bool esValido;
-            string subHeadTitle = "Seleccione el tipo de transporte";
+            string subHeadTitle = @"
+                                   ----------------------------------
+                                    SELECCIONE EL TIPO DE TRANSPORTE 
+                                   ----------------------------------";               
             string[] options = { "Taxi", "Omnibus", "Volver" };
-            Menu menuSelectionCar = new Menu(subHeadTitle, options);
-            menuSelectionCar.RunMenu();
-            switch (menuSelectionCar.SelectedIndex)
+            Menu menuVehicle = new Menu(subHeadTitle, options);
+            menuVehicle.RunMenu();
+            switch (menuVehicle.SelectedIndex)
             {
                 case 0:
                     do
                     {
                         Console.WriteLine("***CANTIDAD MAXIMA PERMITIDA: 4 PASAJEROS***");
-                        Console.Write("Ingrese cantidad de pasajeros: ");
-                        esValido = int.TryParse(Console.ReadLine(), out cantPasajeros);
+                        Console.Write($"Taxi {Taxi.contadorTaxis} - Ingrese cantidad de pasajeros: ");
+                        string entrada = Console.ReadLine();
+                        esValido = int.TryParse(entrada, out cantPasajeros);
                         if (!esValido) advertenciaCarga();
                         else if (!(cantPasajeros >= 1 && cantPasajeros <= 4))
                             advertenciaCarga();
@@ -90,7 +89,7 @@ namespace App_Transporte.Presentacion
                     do
                     {
                         Console.WriteLine("***CANTIDAD MAXIMA PERMITIDA: 100 PASAJEROS***");
-                        Console.Write("Ingrese cantidad de pasajeros: ");
+                        Console.Write($"Omnibus {Omnibus.contadorOmnibus} - Ingrese cantidad de pasajeros: ");
                         esValido = int.TryParse(Console.ReadLine(), out cantPasajeros);
                         if (!esValido) advertenciaCarga();
                         else if (!(cantPasajeros >= 1 && cantPasajeros <= 100))
@@ -121,6 +120,15 @@ namespace App_Transporte.Presentacion
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine(">>--ADVERTENCIA--<< --> Ingresar datos validos!!");
             Console.WriteLine("----------------------------------------------------");
+        }
+
+        private static void mostrarTituloTransportes()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("---------------------------------------------------------");
+            Console.WriteLine("************** TODOS LOS TRANSPORTES ********************");
+            Console.WriteLine("---------------------------------------------------------");
+            Console.WriteLine("");
         }
     }
 }
