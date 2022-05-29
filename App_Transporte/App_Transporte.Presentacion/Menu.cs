@@ -25,22 +25,18 @@ namespace App_Transporte.Presentacion
             for (int i = 0; i < Options.Length; i++)
             {
                 string currentOption = Options[i];
-                string prefix;
-
                 if (i == _selectedIndex)
                 {
-                    prefix = "*";
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.BackgroundColor = ConsoleColor.White;
                 }
                 else
                 {
-                    prefix = "*";
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.BackgroundColor = ConsoleColor.Black;
 
                 }
-                Console.WriteLine($"{prefix} << {currentOption} >>");
+                Console.WriteLine($"* << {currentOption} >>");
             }
             Console.ResetColor();
         }
