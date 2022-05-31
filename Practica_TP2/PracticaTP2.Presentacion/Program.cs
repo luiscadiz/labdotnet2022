@@ -10,6 +10,7 @@ namespace PracticaTP2.Presentacion
     {
         static void Main(string[] args)
         {
+            Consola.Start();
         }
     }
 }
