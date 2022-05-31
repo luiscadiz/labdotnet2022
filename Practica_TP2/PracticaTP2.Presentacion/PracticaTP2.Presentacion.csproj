@@ -50,5 +50,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Practica_TP2.Entidades\Practica_TP2.Entidades.csproj">
+      <Project>{4e1e96ca-12f2-414a-8ca5-1f5656f1d10c}</Project>
+      <Name>Practica_TP2.Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
