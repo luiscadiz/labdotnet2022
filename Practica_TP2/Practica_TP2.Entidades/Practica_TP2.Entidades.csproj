@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DividendoPorCero.cs" />
+    <Compile Include="IntExtension.cs" />
     <Compile Include="Logic.cs" />
     <Compile Include="ExcepcionPersonalizada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

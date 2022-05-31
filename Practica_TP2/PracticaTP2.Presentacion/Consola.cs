@@ -11,36 +11,51 @@ namespace PracticaTP2.Presentacion
     {
         public static void Start()
         {
-            //--------------EJERCICIO 1----------------
-            int dividendo;
-            System.Console.Write("Ingrese un dividendo: ");
-            string entrada = System.Console.ReadLine();
-            bool entradaValida = int.TryParse(entrada, out dividendo);
-            if (entradaValida) IntentarDividirCero(dividendo);
+            Consola.PuntoUno();
+            Consola.PuntoDos();
+            Consola.PuntoTres();
+            Consola.PuntoCuatro();
+            Console.ReadKey();
+        }
 
-            //----------EJERCICIO 2 --------------------
+        private static void PuntoUno()
+        {
+            int numero;
+            System.Console.Write("Ingrese un dividendo: ");
+            bool entradaValida = int.TryParse(Console.ReadLine(), out numero);
+            if (entradaValida) numero.IntentarDividirCero();
+        }
+
+        private static void PuntoDos()
+        {
             System.Console.Write("Ingrese un dividendo: ");
             int num1 = int.Parse(System.Console.ReadLine());
             System.Console.Write("Ingrese un dividendo: ");
             int num2 = int.Parse(System.Console.ReadLine());
-            int resultado = Dividir(num1, num2);
+            int resultado = num1.Dividir(num2);
             Console.WriteLine($"El resultado es: {resultado}");
-            //EJERCICIO 3
+        }
+
+        private static void PuntoTres()
+        {
+            Console.WriteLine("******PUNTO 3******S");
             try
             {
-                Console.WriteLine("******PUNTO 3******S");
                 Logic.DispararExcepcion();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Console.WriteLine($"Mensaje: {ex.Message} Tipo de excepción:\n " +
-                                  $"Tipo: {ex.GetType().ToString()}");
+                Console.WriteLine($"Mensaje: {ex.Message}\n " +
+                                  $"Tipo de excepción: {ex.GetType().ToString()}");
             }
             finally
             {
                 Console.WriteLine("Se termina el punto 3");
             }
+        }
 
+        private static void PuntoCuatro()
+        {
             try
             {
                 Logic.DispararExepcionPersonalizada();
@@ -54,47 +69,6 @@ namespace PracticaTP2.Presentacion
             {
                 Console.WriteLine("Se termina el punto 4");
             }
-
-            Console.ReadKey();
-
-        }
-
-        private static void IntentarDividirCero(int dividendo)
-        {
-            try
-            {
-                int resultado;
-                resultado = dividendo / 0;
-            }
-            catch(DivideByZeroException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                Console.WriteLine("Se finalizó la operación");
-            }
-        }
-
-        private static int Dividir(int dividendo, int divisor)
-        {
-            try
-            {
-                if(divisor != 0)
-                    return dividendo / divisor;
-                else
-                   throw new DividendoPorCero();
-            }
-            catch (DividendoPorCero ex)
-            {
-                Console.WriteLine(ex.Message);
-                return 0;
-            }
-            catch (ArgumentNullException)
-            {
-                Console.WriteLine("Seguro Ingreso una letra o no ingreso nada!");
-                return 0;
-            }
-        }
+        }  
     }
 }
