@@ -25,7 +25,21 @@ namespace PracticaTP2.Presentacion
             int num2 = int.Parse(System.Console.ReadLine());
             int resultado = Dividir(num1, num2);
             Console.WriteLine($"El resultado es: {resultado}");
-            
+            //EJERCICIO 3
+            try
+            {
+                Console.WriteLine("******PUNTO 3******S");
+                Logic.DispararExcepcion();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Mensaje: {ex.Message} Tipo de excepción:\n " +
+                                  $"Tipo: {ex.GetType().ToString()}");
+            }
+            finally
+            {
+                Console.WriteLine("Se termina el punto 3");
+            }
 
             Console.ReadKey();
 

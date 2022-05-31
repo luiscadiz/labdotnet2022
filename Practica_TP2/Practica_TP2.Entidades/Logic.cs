@@ -8,9 +8,14 @@ namespace Practica_TP2.Entidades
 {
     public class Logic
     {
-        public void DispararExcepcion()
+        public static void DispararExcepcion()
         {
-            throw new Exception;
+            throw new Exception();
+        }
+
+        public static void DispararExepcionPersonalizada()
+        {
+            throw new ExcepcionPersonalizada("Disparando una exepción personalida!");
         }
     }
 }
