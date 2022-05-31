@@ -41,6 +41,20 @@ namespace PracticaTP2.Presentacion
                 Console.WriteLine("Se termina el punto 3");
             }
 
+            try
+            {
+                Logic.DispararExepcionPersonalizada();
+            }
+            catch (ExcepcionPersonalizada exp)
+            {
+                Console.WriteLine($"Mensaje: {exp.Message}\n Tipo: {exp.GetType().ToString()} ");
+
+            }
+            finally
+            {
+                Console.WriteLine("Se termina el punto 4");
+            }
+
             Console.ReadKey();
 
         }
