@@ -8,7 +8,7 @@ namespace Practica_TP2.Entidades
 {
     public class ExcepcionPersonalizada : Exception
     {
-        public override string Message => base.Message;
+        public override string Message => $"Mensaje: {base.Message}";
 
         public ExcepcionPersonalizada(string mensaje) : base(mensaje)
         {

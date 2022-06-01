@@ -21,36 +21,60 @@ namespace PracticaTP2.Presentacion
         private static void PuntoUno()
         {
             int numero;
-            System.Console.Write("Ingrese un dividendo: ");
+            string titulo = "----------PUNTO 1 ----------";
+            Console.WriteLine(titulo);
+            Console.Write("Ingrese un numero: ");
             bool entradaValida = int.TryParse(Console.ReadLine(), out numero);
             if (entradaValida) numero.IntentarDividirCero();
+            else
+                Console.WriteLine("No ingreso un numero");
+            Console.WriteLine("Presione enter para continuar con el siguiente punto:");
+            Console.ReadKey();
+            Console.WriteLine("");
         }
-
         private static void PuntoDos()
         {
-            System.Console.Write("Ingrese un dividendo: ");
-            int num1 = int.Parse(System.Console.ReadLine());
-            System.Console.Write("Ingrese un dividendo: ");
-            int num2 = int.Parse(System.Console.ReadLine());
-            int resultado = num1.Dividir(num2);
-            Console.WriteLine($"El resultado es: {resultado}");
+            try
+            {
+                string titulo = "----------PUNTO 2 ----------";
+                Console.WriteLine(titulo);
+                Console.Write("Ingrese un dividendo: ");
+                int dividendo = int.Parse(Console.ReadLine());
+                Console.Write("Ingrese un divisor: ");
+                int divisor = int.Parse(Console.ReadLine());
+                int resultado = dividendo.DividirPor(divisor);
+                Console.WriteLine($"El resultado es: {resultado}");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine($"Seguro Ingreso una letra o no ingreso nada");
+            }
+            finally
+            {
+                Console.WriteLine("Presione enter para continuar con el siguiente punto:");
+                Console.ReadKey();
+                Console.WriteLine("");
+            }
         }
 
         private static void PuntoTres()
         {
-            Console.WriteLine("******PUNTO 3******S");
             try
             {
+                string titulo = "----------PUNTO 3 ----------";
+                Console.WriteLine(titulo);
                 Logic.DispararExcepcion();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Mensaje: {ex.Message}\n " +
+                Console.WriteLine($"Mensaje: {ex.Message}\n " + 
                                   $"Tipo de excepción: {ex.GetType().ToString()}");
             }
             finally
             {
-                Console.WriteLine("Se termina el punto 3");
+                Console.WriteLine("Presione enter para continuar con el siguiente punto:");
+                Console.ReadKey();
+                Console.WriteLine("");
             }
         }
 
@@ -58,16 +82,20 @@ namespace PracticaTP2.Presentacion
         {
             try
             {
+                string titulo = "----------PUNTO 4 ----------";
+                Console.WriteLine(titulo);
                 Logic.DispararExepcionPersonalizada();
             }
             catch (ExcepcionPersonalizada exp)
             {
-                Console.WriteLine($"Mensaje: {exp.Message}\n Tipo: {exp.GetType().ToString()} ");
-
+                Console.WriteLine("------------------------------------------");
+                Console.WriteLine($"{exp.Message}");
+                Console.WriteLine("-------------------------------------------");
             }
             finally
             {
                 Console.WriteLine("Se termina el punto 4");
+                Console.WriteLine("");
             }
         }  
     }

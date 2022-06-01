@@ -25,7 +25,7 @@ namespace Practica_TP2.Entidades
             }
         }
 
-        public static int Dividir(this int value, int divisor)
+        public static int DividirPor(this int value, int divisor)
         {
             try
             {
@@ -38,15 +38,6 @@ namespace Practica_TP2.Entidades
             {
                 Console.WriteLine(ex.Message);
                 return 0;
-            }
-            catch (ArgumentNullException)
-            {
-                Console.WriteLine("Seguro Ingreso una letra o no ingreso nada!");
-                return 0;
-            }
-            finally
-            {
-                Console.WriteLine("Termina el punto 2");
             }
         }
     }
