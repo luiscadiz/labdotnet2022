@@ -2,6 +2,7 @@ namespace App.TP4.Data
 {
     using System;
     using System.Data.Entity;
+    using App.TP4.Entities;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 

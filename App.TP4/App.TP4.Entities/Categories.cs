@@ -1,4 +1,4 @@
-namespace App.TP4.Data
+namespace App.TP4.Entities
 {
     using System;
     using System.Collections.Generic;
