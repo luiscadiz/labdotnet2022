@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.TP4.UI
+namespace App.TP4.Entities
 {
     public class Menu
     {

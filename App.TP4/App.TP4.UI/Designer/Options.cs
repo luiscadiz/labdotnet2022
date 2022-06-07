@@ -10,9 +10,9 @@ namespace App.TP4.UI
     {
         private static string[] _optionsHome =
                                        {"Consultar datos",
-                                        "Insertar",
-                                        "Actualizar",
-                                        "Eliminar",
+                                        "Insertar Empleado",
+                                        "Eliminar Empleado",
+                                        "Actualizar Empleado",
                                         "Salir del programa"};
 
         private static string[] _optionsOne = { "Clientes", "Empleados", "Volver" };

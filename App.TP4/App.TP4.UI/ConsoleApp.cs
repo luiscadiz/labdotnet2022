@@ -32,7 +32,16 @@ namespace App.TP4.UI
                     OptionOne();
                     break;
                 case 1:
-
+                    Console.WriteLine(Headers.HeaderOptions);
+                    OptionInsertEmployee();
+                    break;
+                case 2:
+                    OptionDelete();
+                    break;
+                case 3:
+                    OptionUpdate();
+                    break;
+                default:
                     break;
             }
         }
@@ -43,16 +52,48 @@ namespace App.TP4.UI
             switch (menuEntities.SelectedIndex)
             {
                 case 0:
+                    Console.WriteLine(Headers.HeaderOptions);
                     CustomersLogic customersLogic = new CustomersLogic();
                     customersLogic.ShowAll();
                     Console.ReadLine();
                     break;
                 case 1:
-                    
+                    Console.WriteLine(Headers.HeaderOptions);
+                    EmployeesLogic employeesLogic = new EmployeesLogic();
+                    employeesLogic.ShowAll();
+                    Console.ReadLine();
                     break;
                 default:
                     break;
             }
+        }
+
+        private static void OptionInsertEmployee()
+        {
+            EmployeesLogic employeesLogic = new EmployeesLogic();
+            Employees employee= new Employees();
+            int lastId = employeesLogic.GetLastID();
+            employee.EmployeeID = lastId + 1;
+            Console.Write("Ingresar Nombre: ");
+            employee.FirstName= Console.ReadLine();
+            Console.Write("Ingresar Apellido: ");
+            employee.LastName= Console.ReadLine();
+            employeesLogic.Insert(employee); 
+        }
+
+        private static void OptionDelete()
+        {
+            EmployeesLogic employeesLogic = new EmployeesLogic();
+            Console.WriteLine("Ingrese el ID del empleado");
+            int employeID;
+            bool entryID = int.TryParse(Console.ReadLine(), out employeID);
+            if (entryID) employeesLogic.Delete(employeID);
+            else Console.WriteLine("Ingreso de dato no valido");
+        }
+
+        private static void OptionUpdate()
+        {
+
         }
     }
 }

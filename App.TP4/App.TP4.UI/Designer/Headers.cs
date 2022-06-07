@@ -17,11 +17,23 @@ namespace App.TP4.UI
 ----(Use las flechas hacia abajo y arriba para navegar y presione enter para seleccionar)-----";
 
         private static string _headerOptionOne= @"
-                                   -----------------------------------
-                                    SELECCIONE UNA ENTIDAD A CONSULTAR
-                                   -----------------------------------";
+                      _  _         _          _         _ 
+                     | \| |___ _ _| |___ __ _(_)_ _  __| |
+                     | .` / _ \ '_|  _\ V  V / | ' \/ _` |
+                     |_|\_\___/_|  \__|\_/\_/|_|_||_\__,_|
+                                            
+                     ------------------------------------
+                      SELECCIONE UNA ENTIDAD A CONSULTAR
+                     -----------------------------------";
+        private static string _headerOptions = @"
+                      _  _         _          _         _ 
+                     | \| |___ _ _| |___ __ _(_)_ _  __| |
+                     | .` / _ \ '_|  _\ V  V / | ' \/ _` |
+                     |_|\_\___/_|  \__|\_/\_/|_|_||_\__,_| 
+                                                        ";
 
         public static string HeaderHome { get => _headerHome; }
         public static string HeaderOptionOne { get => _headerOptionOne;}
+        public static string HeaderOptions { get => _headerOptions; }
     }
 }
