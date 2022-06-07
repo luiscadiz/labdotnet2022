@@ -1,4 +1,4 @@
-﻿using LabDemo.EF.Entities;
+﻿ using LabDemo.EF.Entities;
 using LabDemo.EF.Logic;
 using System;
 using System.Collections.Generic;
