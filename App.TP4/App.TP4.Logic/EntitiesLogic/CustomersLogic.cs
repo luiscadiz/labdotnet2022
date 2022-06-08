@@ -17,12 +17,12 @@ namespace App.TP4.Logic
 
         public void ShowAll()
         {
-            var table = new TablePrinter("ID", "Nombre de contacto", "Dirección");
+            var table = new TablePrinter("ID", "Nombre de contacto", "Dirección","Puesto");
             Console.WriteLine("****RECUPERANDO DATOS - ESPERE POR FAVOR!*****");
             foreach (Customers customer in this.GetAll())
             {
                 //Console.WriteLine($"{customer.ContactName} - {customer.Address}");
-                table.AddRow(customer.CustomerID, customer.ContactName, customer.Address);
+                table.AddRow(customer.CustomerID, customer.ContactName, customer.Address,customer.ContactTitle);
             }
             table.Print();
         }

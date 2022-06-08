@@ -72,11 +72,9 @@ namespace App.TP4.UI
         {
             EmployeesLogic employeesLogic = new EmployeesLogic();
             Employees employee= new Employees();
-            int lastId = employeesLogic.GetLastID();
-            employee.EmployeeID = lastId + 1;
-            Console.Write("Ingresar Nombre: ");
+            Console.Write("Ingresar Nombre: _");
             employee.FirstName= Console.ReadLine();
-            Console.Write("Ingresar Apellido: ");
+            Console.Write("Ingresar Apellido: _");
             employee.LastName= Console.ReadLine();
             employeesLogic.Insert(employee); 
         }

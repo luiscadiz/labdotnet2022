@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using App.TP4.Entities;
 
+
 namespace App.TP4.Logic
 {
     public class EmployeesLogic : BaseLogic, IABMLogic<Employees>
@@ -16,18 +17,27 @@ namespace App.TP4.Logic
 
         public void ShowAll()
         {
-            var table = new TablePrinter("ID", "Nombre","Apellido");
+            bool estado = true;
             Console.WriteLine("****RECUPERANDO DATOS - ESPERE POR FAVOR!*****");
             foreach (Employees employee in this.GetAll())
             {
-                //Console.WriteLine($"{customer.ContactName} - {customer.Address}");
-                table.AddRow(employee.EmployeeID, employee.FirstName, employee.LastName);
+                if (estado)
+                {
+                    TablePinter.PrintRow("ID", "NOMBRE", "APELLIDO", "PUESTO", "CUMPLEAÑOS",
+                                    "CIUDAD","DIRECCIÓN","PAIS");
+                    TablePinter.PrintLine();
+                    estado = false;
+                }
+                TablePinter.PrintRow(employee.EmployeeID.ToString(), employee.FirstName, 
+                                employee.LastName, employee.Title, employee.BirthDate.ToString(), 
+                                employee.City,employee.Address,employee.Country);
             }
-            table.Print();
         }
 
         public void Insert(Employees employee)
         {
+            //Genera un nuevo ID a partir del ultimo encontrado
+            employee.EmployeeID = GetLastID() + 1;
             _context.Employees.Add(employee);
             _context.SaveChanges();
         }
@@ -44,7 +54,7 @@ namespace App.TP4.Logic
             throw new NotImplementedException();
         }
 
-        public int GetLastID()
+        private int GetLastID()
         {
             return _context.Employees.Max(x => x.EmployeeID);
         }
