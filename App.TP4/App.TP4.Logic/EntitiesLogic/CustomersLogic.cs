@@ -17,14 +17,23 @@ namespace App.TP4.Logic
 
         public void ShowAll()
         {
-            var table = new TablePrinter("ID", "Nombre de contacto", "Dirección","Puesto");
+
+            bool estado = true;
             Console.WriteLine("****RECUPERANDO DATOS - ESPERE POR FAVOR!*****");
             foreach (Customers customer in this.GetAll())
             {
-                //Console.WriteLine($"{customer.ContactName} - {customer.Address}");
-                table.AddRow(customer.CustomerID, customer.ContactName, customer.Address,customer.ContactTitle);
+                if (estado)
+                {
+                    TableGraphic.PrintRow("ID", "EMPRESA", "NOMBRE", "CARGO", "DIRECCIÓN",
+                                    "CIUDAD", "PAIS");
+                    TableGraphic.PrintLine();
+                    estado = false;
+                }
+                TableGraphic.PrintRow(customer.CustomerID,
+                             customer.CompanyName, customer.ContactName,
+                             customer.ContactTitle,customer.Address,
+                             customer.City,customer.Country);
             }
-            table.Print();
         }
 
         public void Insert(Customers customer)

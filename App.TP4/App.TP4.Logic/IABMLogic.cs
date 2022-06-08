@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace App.TP4.Logic
 {
-    internal interface IABMLogic<T>
+    public interface IABMLogic<T>
     {
         List<T> GetAll();
         void Insert(T entities);
         void Delete(int id);
-        void Update(T entities);
+        void Update(T entities, int id);
     }
 }

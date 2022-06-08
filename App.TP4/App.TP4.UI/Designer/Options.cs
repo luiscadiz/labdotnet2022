@@ -15,7 +15,9 @@ namespace App.TP4.UI
                                         "Actualizar Empleado",
                                         "Salir del programa"};
 
-        private static string[] _optionsOne = { "Clientes", "Empleados", "Volver" };
+        private static string[] _optionsOne = { "Ver todos los Empleados",
+                                                "Ver todos los Clientes",
+                                                "Volver" };
 
         public static string[] OptionHome { get => _optionsHome;}
         public static string[] OptionsOne { get => _optionsOne;}

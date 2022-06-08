@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace App.TP4.Logic
 {
-    public class TablePinter
+    public class TableGraphic
     {
         static int tableWidth = 107;
 

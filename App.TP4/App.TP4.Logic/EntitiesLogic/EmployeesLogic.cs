@@ -15,25 +15,6 @@ namespace App.TP4.Logic
             return _context.Employees.ToList();
         }
 
-        public void ShowAll()
-        {
-            bool estado = true;
-            Console.WriteLine("****RECUPERANDO DATOS - ESPERE POR FAVOR!*****");
-            foreach (Employees employee in this.GetAll())
-            {
-                if (estado)
-                {
-                    TablePinter.PrintRow("ID", "NOMBRE", "APELLIDO", "PUESTO", "CUMPLEAÑOS",
-                                    "CIUDAD","DIRECCIÓN","PAIS");
-                    TablePinter.PrintLine();
-                    estado = false;
-                }
-                TablePinter.PrintRow(employee.EmployeeID.ToString(), employee.FirstName, 
-                                employee.LastName, employee.Title, employee.BirthDate.ToString(), 
-                                employee.City,employee.Address,employee.Country);
-            }
-        }
-
         public void Insert(Employees employee)
         {
             //Genera un nuevo ID a partir del ultimo encontrado
@@ -44,14 +25,17 @@ namespace App.TP4.Logic
 
         public void Delete(int id)
         {
-            var employeeFind = _context.Employees.Find(id);
+            Employees employeeFind = _context.Employees.First(e => e.EmployeeID == id);
             _context.Employees.Remove(employeeFind);
             _context.SaveChanges();
         }
 
-        public void Update(Employees entities)
+        public void Update(Employees employee, int id)
         {
-            throw new NotImplementedException();
+            var employeeUpdate = _context.Employees.First(e => e.EmployeeID == id);
+            employeeUpdate.Title = employee.Title;
+            employeeUpdate.Address = employee.Address;
+            _context.SaveChanges();
         }
 
         private int GetLastID()

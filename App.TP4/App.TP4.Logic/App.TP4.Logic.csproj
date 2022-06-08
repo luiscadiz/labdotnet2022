@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseLogic.cs" />
-    <Compile Include="DesignerLogic\TablePinter.cs" />
+    <Compile Include="DesignerLogic\TableGraphic.cs" />
     <Compile Include="EntitiesLogic\CustomersLogic.cs" />
     <Compile Include="DesignerLogic\Menu.cs" />
     <Compile Include="EntitiesLogic\EmployeesLogic.cs" />

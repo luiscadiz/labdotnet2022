@@ -14,7 +14,9 @@ namespace App.TP4.UI
           \ \/\/ / -_) / _/ _ \ '  \/ -_)  |  _/ _ \  | .` / _ \ '_|  _\ V  V / | ' \/ _` |
            \_/\_/\___|_\__\___/_|_|_\___|   \__\___/  |_|\_\___/_|  \__|\_/\_/|_|_||_\__,_|
                                                                                                                                                       
-----(Use las flechas hacia abajo y arriba para navegar y presione enter para seleccionar)-----";
+----(Use las flechas hacia abajo y arriba para navegar y presione enter para seleccionar)-----
+
+";
 
         private static string _headerOptionOne= @"
                       _  _         _          _         _ 
