@@ -8,9 +8,9 @@ using App.TP4.Entities;
 
 namespace App.TP4.Logic
 {
-    public class CustomersLogic : BaseLogic
+    public class CustomersLogic : BaseLogic, IABMLogic<Customers>
     {
-        private IEnumerable<Customers> GetAll()
+        public List<Customers> GetAll()
         {
             return _context.Customers.ToList();
         }
@@ -49,5 +49,9 @@ namespace App.TP4.Logic
             _context.SaveChanges();
         }
 
+        public void Update(Customers entities, int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

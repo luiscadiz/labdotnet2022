@@ -176,7 +176,7 @@ namespace App.TP4.UI
                 Console.Write("*==> Ingrese el ID del proveedor a Actualizar:_ ");
                 bool entryTrue = int.TryParse(Console.ReadLine(), out entryID);
                 if (!entryTrue) throw new IdErrorExeption(); 
-                Console.Write("Ingrese nuevo Nombre Dirección:_ ");
+                Console.Write("Ingrese nuevo Dirección:_ ");
                 string newAddress = Console.ReadLine();
                 Console.Write("Ingrese nuevo Numero de Telefono:_ ");
                 string newPhone = Console.ReadLine();

@@ -39,7 +39,7 @@ namespace App.TP4.Logic
             try
             {
                 var supplierUpdate = _context.Suppliers.First(e => e.SupplierID == id);
-                supplierUpdate.ContactName = newSupplier.ContactName;
+                supplierUpdate.Address = newSupplier.Address;
                 supplierUpdate.Phone = newSupplier.Phone;
                 _context.SaveChanges();
             }
