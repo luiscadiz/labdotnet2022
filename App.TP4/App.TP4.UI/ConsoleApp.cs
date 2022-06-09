@@ -159,10 +159,17 @@ namespace App.TP4.UI
                 Console.WriteLine("****ELIMINACIÓN EXITOSA*****");
                 ShowTableSuppliers(suppliersLogic);
                 Console.ReadLine();
-            }catch (Exception ex){
+            }
+            catch(FormatException)
+            {
+                Console.WriteLine("Debe ingresar un ID");
+            }
+            catch (Exception ex){
 
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("*==> INGRESO DE DATO NO VALIDO!!!");
+            }
+            finally
+            {
                 Console.ReadLine();
             }
         }
@@ -175,7 +182,8 @@ namespace App.TP4.UI
                 ShowTableSuppliers(suppliersLogic);
                 Console.Write("*==> Ingrese el ID del proveedor a Actualizar:_ ");
                 bool entryTrue = int.TryParse(Console.ReadLine(), out entryID);
-                if (!entryTrue) throw new IdErrorExeption(); 
+                suppliersLogic.ValidateID(entryID);
+                //if (!entryTrue) throw new IdErrorExeption(); 
                 Console.Write("Ingrese nuevo Dirección:_ ");
                 string newAddress = Console.ReadLine();
                 Console.Write("Ingrese nuevo Numero de Telefono:_ ");

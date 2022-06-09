@@ -24,14 +24,28 @@ namespace App.TP4.Logic
 
         public void Delete(int id)
         {
-            var products = _context.Products.Where(o => o.SupplierID == id);
-            foreach (var product in products)
+            try
             {
-                product.SupplierID = null;
+                var supplierFind = _context.Suppliers.First(s => s.SupplierID == id);
+                if (supplierFind != null)
+                {
+                    var products = _context.Products.Where(o => o.SupplierID == id);
+                    foreach (var product in products)
+                    {
+                        product.SupplierID = null;
+                    }
+                    _context.Suppliers.Remove(supplierFind);
+                    _context.SaveChanges();
+                }     
             }
-            var supplierFind = _context.Suppliers.First(s => s.SupplierID == id);
-            _context.Suppliers.Remove(supplierFind);
-            _context.SaveChanges();
+            catch(InvalidOperationException)
+            {
+                throw new IdErrorExeption();
+            }
+            catch (DeleteSupplierException)
+            {
+                throw new DeleteSupplierException();
+            }
         }
 
         public void Update(Suppliers newSupplier, int id)
@@ -54,6 +68,19 @@ namespace App.TP4.Logic
         private int GetLastID()
         {
             return _context.Employees.Max(x => x.EmployeeID);
+        }
+
+        public void ValidateID(int id)
+        {
+            try
+            {
+                var supplierFind = _context.Suppliers.First(s => s.SupplierID == id);
+            }
+            catch (InvalidOperationException)
+            {
+                throw new IdErrorExeption();
+            }
+
         }
     }
 }

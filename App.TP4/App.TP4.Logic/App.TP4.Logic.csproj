@@ -57,6 +57,7 @@
     <Compile Include="DesignerLogic\Menu.cs" />
     <Compile Include="EntitiesLogic\EmployeesLogic.cs" />
     <Compile Include="EntitiesLogic\SuppliersLogic.cs" />
+    <Compile Include="Exceptions\DeleteSupplierException.cs" />
     <Compile Include="Exceptions\IdErrorExeption.cs" />
     <Compile Include="IABMLogic.cs" />
     <Compile Include="EntitiesLogic\OrdersLogic.cs" />
