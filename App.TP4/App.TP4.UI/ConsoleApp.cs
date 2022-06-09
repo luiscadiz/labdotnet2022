@@ -29,28 +29,29 @@ namespace App.TP4.UI
         {
             EmployeesLogic employeesLogic = new EmployeesLogic();
             CustomersLogic customersLogic = new CustomersLogic();
+            SuppliersLogic suppliersLogic = new SuppliersLogic();
             switch (optionCurrent)
             {
                 case 0:
-                    OptionOneGetInformation(employeesLogic,customersLogic);
+                    OptionOneGetInformation(employeesLogic, suppliersLogic);
                     break;
                 case 1:
                     Console.WriteLine(Headers.HeaderOptions);
-                    OptionTwoInsertEmployee(employeesLogic);
+                    OptionTwoInsertSupplier(suppliersLogic);
                     break;
                 case 2:
                     Console.WriteLine(Headers.HeaderOptions);
-                    OptionDelete(employeesLogic);
+                    OptionTreeDeleteSupplier(suppliersLogic);
                     break;
                 case 3:
                     Console.WriteLine(Headers.HeaderOptions);
-                    OptionUpdate(employeesLogic);
+                    OptionFourUpdateSupplier(suppliersLogic);
                     break;
                 default:
                     break;
             }
         }
-        private static void OptionOneGetInformation(EmployeesLogic employeesLogic, CustomersLogic customersLogic)
+        private static void OptionOneGetInformation(EmployeesLogic employeesLogic, SuppliersLogic suppliersLogic)
         {
             Menu menuEntities = new Menu(Headers.HeaderOptionOne, Options.OptionsOne);
             menuEntities.RunMenu();
@@ -58,13 +59,13 @@ namespace App.TP4.UI
             {
                 case 0:
                     Console.WriteLine(Headers.HeaderOptions);
-                    ShowTableEmployee(employeesLogic);
+                    ShowTableSuppliers(suppliersLogic);
                     Console.WriteLine("Presione Enter para volver al menu!..");
                     Console.ReadLine();
                     break;
                 case 1:
                     Console.WriteLine(Headers.HeaderOptions);
-                    customersLogic.ShowAll();
+                    ShowTableEmployee(employeesLogic);
                     Console.WriteLine("Presione Enter para volver al menu!..");
                     Console.ReadLine();
                     break;
@@ -81,6 +82,7 @@ namespace App.TP4.UI
             {
                 if (estado)
                 {
+                    TableGraphic.PrintLine();
                     TableGraphic.PrintRow("ID", "NOMBRE", "APELLIDO", 
                                           "PUESTO", "F. NACIMIENTO",
                                           "CIUDAD", "DIRECCIÓN", "PAIS");
@@ -91,85 +93,100 @@ namespace App.TP4.UI
                                 employee.LastName, employee.Title, employee.BirthDate.ToString(),
                                 employee.City, employee.Address, employee.Country);
             }
+            TableGraphic.PrintLine();
             Console.WriteLine("");
         }
 
-        private static void OptionTwoInsertEmployee(EmployeesLogic employeesLogic)
+        private static void ShowTableSuppliers(SuppliersLogic suppliersLogic)
+        {
+            bool estado = true;
+            Console.WriteLine("****RECUPERANDO DATOS - ESPERE POR FAVOR!*****");
+            foreach (Suppliers supplier in suppliersLogic.GetAll())
+            {
+                if (estado)
+                {
+                    TableGraphic.PrintLine();
+                    TableGraphic.PrintRow("ID", "EMPRESA","DIRECCIÓN", "TELEFONO", "CIUDAD");
+                    TableGraphic.PrintLine();
+                    estado = false;
+                }
+                TableGraphic.PrintRow(supplier.SupplierID.ToString(), supplier.CompanyName, 
+                                      supplier.Address, supplier.Phone, supplier.City);
+            }
+            TableGraphic.PrintLine();
+            Console.WriteLine("");
+        }
+
+        private static void OptionTwoInsertSupplier(SuppliersLogic suppliersLogic)
         {
             try
             {
-                Console.Write("Ingresar Nombre:_ ");
-                string firtName = Console.ReadLine();
-                Console.Write("Ingresar Apellido:_ ");
-                string lastName = Console.ReadLine();
-                Console.Write("Ingresar nombre del Puesto:_ ");
-                string title = Console.ReadLine();
-                Console.Write("Ingresar Dirección:_ ");
-                string address = Console.ReadLine();
-                employeesLogic.Insert(new Employees()
+                Console.Write("Ingresar Nombre del Proveedor:_ ");
+                string nameCompany = Console.ReadLine();
+                Console.Write("Ingresar Nombre de Contacto:_ ");
+                string contactCompany = Console.ReadLine();
+                Console.Write("Ingresar numero de telefono:_ ");
+                string nroCompany = Console.ReadLine();
+                suppliersLogic.Insert(new Suppliers()
                 {
-                    FirstName = firtName,
-                    LastName = lastName,
-                    Title = title,
-                    Address = address
+                    CompanyName = nameCompany,
+                    ContactName = contactCompany,
+                    Phone = nroCompany
                 });
-                ShowTableEmployee(employeesLogic);
+                ShowTableSuppliers(suppliersLogic);
                 Console.WriteLine("Presione Enter para volver al menu!..");
                 Console.ReadLine();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 Console.WriteLine("Se ingreso algun dato de forma incorrecta!");
             }
-         
+
         }
 
-        private static void OptionDelete(EmployeesLogic employeesLogic)
+        private static void OptionTreeDeleteSupplier(SuppliersLogic suppliersLogic)
         {
-            NewMethod(employeesLogic);
-        }
 
-        private static void NewMethod(EmployeesLogic employeesLogic)
-        {
-            //try
-            //{
-                ShowTableEmployee(employeesLogic);
-                Console.Write("Ingrese el ID del empleado a eliminar:_");
+            try
+            {
+                ShowTableSuppliers(suppliersLogic);
+                Console.Write("*==>Ingrese el ID del Proveedor a eliminar:_");
                 int entryID = Convert.ToInt32(Console.ReadLine());
-                employeesLogic.Delete(entryID);
+                suppliersLogic.Delete(entryID);
                 Console.WriteLine("****ELIMINACIÓN EXITOSA*****");
-                ShowTableEmployee(employeesLogic);
+                ShowTableSuppliers(suppliersLogic);
                 Console.ReadLine();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //    Console.WriteLine("INGRESO DE DATO NO VALIDO!!!");
-            //    Console.ReadLine();
-            //}
+            }catch (Exception ex){
+
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("*==> INGRESO DE DATO NO VALIDO!!!");
+                Console.ReadLine();
+            }
         }
 
-        private static void OptionUpdate(EmployeesLogic employeesLogic)
+        private static void OptionFourUpdateSupplier(SuppliersLogic suppliersLogic)
         {
             try
             {
-                ShowTableEmployee(employeesLogic);
-                Console.Write("Ingrese el ID del empleado a Actualizar:_ ");
-                int entryID = Convert.ToInt32(Console.ReadLine());
-                Console.Write("Ingrese nuevo Puesto:_ ");
-                string newTitle = Console.ReadLine();
-                Console.Write("Ingrese nuevo Dirección:_ ");
+                int entryID;
+                ShowTableSuppliers(suppliersLogic);
+                Console.Write("*==> Ingrese el ID del proveedor a Actualizar:_ ");
+                bool entryTrue = int.TryParse(Console.ReadLine(), out entryID);
+                if (!entryTrue) throw new IdErrorExeption(); 
+                Console.Write("Ingrese nuevo Nombre Dirección:_ ");
                 string newAddress = Console.ReadLine();
-                employeesLogic.Update(new Employees()
+                Console.Write("Ingrese nuevo Numero de Telefono:_ ");
+                string newPhone = Console.ReadLine();
+                suppliersLogic.Update(new Suppliers()
                 {
-                    Title = newTitle,
-                    Address = newAddress
+                    Address = newAddress,
+                    Phone = newPhone
                 }, entryID);
-                ShowTableEmployee(employeesLogic);
+                ShowTableSuppliers(suppliersLogic);
                 Console.ReadLine();
-            }catch(Exception)
+            }catch(Exception ex)
             {
-                Console.WriteLine("Ocurrio un problema en la actualización");
+                Console.WriteLine(ex.Message);
                 Console.ReadLine();
             }
           

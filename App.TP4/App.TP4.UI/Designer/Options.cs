@@ -9,13 +9,13 @@ namespace App.TP4.UI
     public class Options
     {
         private static string[] _optionsHome =
-                                       {"Consultar datos",
-                                        "Insertar Empleado",
-                                        "Eliminar Empleado",
-                                        "Actualizar Empleado",
+                                       {"Ver Proveedores o Clientes",
+                                        "Insertar Proveedor",
+                                        "Eliminar Proveedor",
+                                        "Actualizar Proveedor",
                                         "Salir del programa"};
 
-        private static string[] _optionsOne = { "Ver todos los Empleados",
+        private static string[] _optionsOne = { "Ver todos los Proveedores",
                                                 "Ver todos los Clientes",
                                                 "Volver" };
 

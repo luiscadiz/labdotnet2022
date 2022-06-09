@@ -56,8 +56,10 @@
     <Compile Include="EntitiesLogic\CustomersLogic.cs" />
     <Compile Include="DesignerLogic\Menu.cs" />
     <Compile Include="EntitiesLogic\EmployeesLogic.cs" />
-    <Compile Include="Exceptions\ExceptionEmployees.cs" />
+    <Compile Include="EntitiesLogic\SuppliersLogic.cs" />
+    <Compile Include="Exceptions\IdErrorExeption.cs" />
     <Compile Include="IABMLogic.cs" />
+    <Compile Include="EntitiesLogic\OrdersLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

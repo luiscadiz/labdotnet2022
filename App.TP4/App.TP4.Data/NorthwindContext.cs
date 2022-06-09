@@ -18,6 +18,8 @@ namespace App.TP4.Data
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<EmployeeTerritories> EmployeeTerritories { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -37,6 +39,10 @@ namespace App.TP4.Data
             modelBuilder.Entity<Orders>()
                 .Property(e => e.Freight)
                 .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Products>()
+               .Property(e => e.UnitPrice)
+               .HasPrecision(19, 4);
         }
     }
 }

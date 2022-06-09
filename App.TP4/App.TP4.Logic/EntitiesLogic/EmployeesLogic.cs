@@ -25,10 +25,11 @@ namespace App.TP4.Logic
 
         public void Delete(int id)
         {
-            Employees employeeFind = _context.Employees.First(e => e.EmployeeID == id);
+
+            var employeeFind = _context.Employees.First(e => e.EmployeeID == id);
             _context.Employees.Remove(employeeFind);
             _context.SaveChanges();
-            //Lanza un inner exception con datos originales de la DB
+            //Lanza un inner exception cuando elimino con datos de la DB
         }
 
         public void Update(Employees employee, int id)
