@@ -32,6 +32,7 @@ namespace App.TP4.Logic
                     var products = _context.Products.Where(o => o.SupplierID == id);
                     foreach (var product in products)
                     {
+                        //_context.Suppliers.Remove(product);
                         product.SupplierID = null;
                     }
                     _context.Suppliers.Remove(supplierFind);
@@ -60,9 +61,7 @@ namespace App.TP4.Logic
             catch(Exception ex)
             {
                 throw new IdErrorExeption();
-            }
-           
-            
+            }  
         }
 
         private int GetLastID()
