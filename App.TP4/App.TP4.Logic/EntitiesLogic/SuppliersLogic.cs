@@ -64,9 +64,9 @@ namespace App.TP4.Logic
             }  
         }
 
-        private int GetLastID()
+        public int GetLastID()
         {
-            return _context.Employees.Max(x => x.EmployeeID);
+            return _context.Suppliers.Max(x => x.SupplierID);
         }
 
         public void ValidateID(int id)
