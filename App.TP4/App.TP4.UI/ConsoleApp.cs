@@ -123,15 +123,18 @@ namespace App.TP4.UI
             {
                 Console.Write("Ingresar Nombre del Proveedor:_ ");
                 string nameCompany = Console.ReadLine();
-                Console.Write("Ingresar Nombre de Contacto:_ ");
-                string contactCompany = Console.ReadLine();
+                Console.Write("Ingresar Dirección del Proveedor:_ ");
+                string addtressCompany = Console.ReadLine();
                 Console.Write("Ingresar numero de telefono:_ ");
                 string nroCompany = Console.ReadLine();
+                Console.Write("Ingresar ciudad del Proveedor:_ ");
+                string cityCompany = Console.ReadLine();
                 suppliersLogic.Insert(new Suppliers()
                 {
                     CompanyName = nameCompany,
-                    ContactName = contactCompany,
-                    Phone = nroCompany
+                    Address = addtressCompany,
+                    Phone = nroCompany,
+                    City = cityCompany
                 });
                 ShowTableSuppliers(suppliersLogic);
                 Console.WriteLine("Presione Enter para volver al menu!..");
