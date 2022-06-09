@@ -126,8 +126,13 @@ namespace App.TP4.UI
 
         private static void OptionDelete(EmployeesLogic employeesLogic)
         {
-            try
-            {
+            NewMethod(employeesLogic);
+        }
+
+        private static void NewMethod(EmployeesLogic employeesLogic)
+        {
+            //try
+            //{
                 ShowTableEmployee(employeesLogic);
                 Console.Write("Ingrese el ID del empleado a eliminar:_");
                 int entryID = Convert.ToInt32(Console.ReadLine());
@@ -135,12 +140,13 @@ namespace App.TP4.UI
                 Console.WriteLine("****ELIMINACIÓN EXITOSA*****");
                 ShowTableEmployee(employeesLogic);
                 Console.ReadLine();
-            }
-            catch(Exception)
-            {
-                Console.WriteLine("INGRESO DE DATO NO VALIDO!!!");
-                Console.ReadLine();
-            } 
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //    Console.WriteLine("INGRESO DE DATO NO VALIDO!!!");
+            //    Console.ReadLine();
+            //}
         }
 
         private static void OptionUpdate(EmployeesLogic employeesLogic)

@@ -28,6 +28,7 @@ namespace App.TP4.Logic
             Employees employeeFind = _context.Employees.First(e => e.EmployeeID == id);
             _context.Employees.Remove(employeeFind);
             _context.SaveChanges();
+            //Lanza un inner exception con datos originales de la DB
         }
 
         public void Update(Employees employee, int id)

@@ -17,6 +17,7 @@ namespace App.TP4.Data
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -28,6 +29,14 @@ namespace App.TP4.Data
                 .HasMany(e => e.Employees1)
                 .WithOptional(e => e.Employees2)
                 .HasForeignKey(e => e.ReportsTo);
+
+            modelBuilder.Entity<Orders>()
+                .Property(e => e.CustomerID)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Orders>()
+                .Property(e => e.Freight)
+                .HasPrecision(19, 4);
         }
     }
 }
