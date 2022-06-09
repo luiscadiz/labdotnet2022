@@ -155,10 +155,9 @@ namespace App.TP4.UI
                 ShowTableSuppliers(suppliersLogic);
                 Console.Write("*==>Ingrese el ID del Proveedor a eliminar:_");
                 int entryID = Convert.ToInt32(Console.ReadLine());
-                suppliersLogic.Delete(entryID);
-                Console.WriteLine("****ELIMINACIÓN EXITOSA*****");
+                suppliersLogic.Delete(entryID); 
                 ShowTableSuppliers(suppliersLogic);
-                Console.ReadLine();
+                Console.WriteLine("****ELIMINACIÓN EXITOSA*****");
             }
             catch(FormatException)
             {
@@ -170,6 +169,7 @@ namespace App.TP4.UI
             }
             finally
             {
+                Console.WriteLine("Presione Enter para salir..");
                 Console.ReadLine();
             }
         }
