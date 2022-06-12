@@ -60,6 +60,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Practico.TP5.Entities\Practico.TP5.Entities.csproj">
+      <Project>{09161af2-0a88-4722-ac88-892ff7ffbe2e}</Project>
+      <Name>Practico.TP5.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Practico.TP5.Logic\Practico.TP5.Logic.csproj">
+      <Project>{82a09fd4-0478-4ed8-bbd4-89595eabb4d0}</Project>
+      <Name>Practico.TP5.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
