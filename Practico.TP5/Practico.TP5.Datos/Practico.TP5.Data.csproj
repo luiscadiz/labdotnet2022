@@ -57,5 +57,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Practico.TP5.Entities\Practico.TP5.Entities.csproj">
+      <Project>{09161af2-0a88-4722-ac88-892ff7ffbe2e}</Project>
+      <Name>Practico.TP5.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

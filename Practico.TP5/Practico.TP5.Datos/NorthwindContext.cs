@@ -2,6 +2,7 @@ namespace Practico.TP5.Datos
 {
     using System;
     using System.Data.Entity;
+    using Practico.TP5.Entities;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
