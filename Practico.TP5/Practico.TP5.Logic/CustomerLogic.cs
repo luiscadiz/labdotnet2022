@@ -8,20 +8,54 @@ using Practico.TP5.Entities;
 
 namespace Practico.TP5.Logic
 {
-    public class CustomerLogic
+    public class CustomerLogic: BaseLogic
     {
-        private readonly NorthwindContext _context;
-
-        public CustomerLogic()
+        #region Exercise 1
+        public List<Customers> GetAllCustomers()
         {
-            _context = new NorthwindContext();
-        }
-        public List<Customers> GetAll()
-        {
-            IQueryable<Customers> queryGetAllCustomer = from customer in _context.Customers
-                                                        select customer;
+            var queryGetAllCustomer = from customer in _context.Customers
+                                      select customer;
             return queryGetAllCustomer.ToList();
         }
+        #endregion
 
+        #region Exercise 4
+        public List<Customers> GetCustomerRegionWA()
+        {
+            var queryGetCustomerRegionWA = _context.Customers.Where(c => c.Region == "WA");
+            return queryGetCustomerRegionWA.ToList();
+        }
+        #endregion
+
+        #region Exercise 6
+        public List<CustomerName> GetNamesCustomers()
+        {
+            var queryGetNamesCustomers = _context.Customers.Select(c => new CustomerName
+            {
+                NameUpper = c.ContactName.ToUpper(),
+                NameLower = c.ContactName.ToLower()
+            });
+            return queryGetNamesCustomers.ToList();
+        }
+        #endregion
+
+        #region Exercise 7
+        public List<CustomerOrder> GetCustomersJoinOrders()
+        {
+            var queryGetCustomersJoinOrders = from customers in _context.Customers
+                                              join orders in _context.Orders
+                                              on customers.CustomerID
+                                              equals orders.CustomerID
+                                              where customers.Region == "WA" 
+                                              && orders.OrderDate > new DateTime(1997, 1, 1)
+                                              select new CustomerOrder
+                                              {
+                                                 Customer = customers,
+                                                 Order = orders
+                                              };
+
+            return queryGetCustomersJoinOrders.ToList();
+        }
+        #endregion
     }
 }

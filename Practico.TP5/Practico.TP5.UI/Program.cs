@@ -13,15 +13,9 @@ namespace Practico.TP5.UI
         static void Main(string[] args)
         {
             var customerLogic = new CustomerLogic();
+            var productLogic = new ProductsLogic();
 
-            var allCustormers = customerLogic.GetAll();
-
-            foreach(var customer in allCustormers)
-            {
-                Console.WriteLine($"{customer.CompanyName} - {customer.ContactName}");
-            }
-
-            Console.ReadLine();
+          
             
 
         }
