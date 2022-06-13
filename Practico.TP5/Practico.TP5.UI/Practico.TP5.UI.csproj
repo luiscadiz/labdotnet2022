@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DesignLogic\Menu.cs" />
+    <Compile Include="DesignLogic\TableGraphic.cs" />
     <Compile Include="Design\Headers.cs" />
     <Compile Include="Design\Options.cs" />
     <Compile Include="PresentationTP5.cs" />
