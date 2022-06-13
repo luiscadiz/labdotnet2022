@@ -137,7 +137,26 @@ namespace Practico.TP5.UI
         private void OptionFour()
         {
             Console.WriteLine("4. Query para devolver todos los customers de la Región WA.");
-            ShowTableCustomer();
+            bool estado = true;
+            Console.WriteLine("");
+            Console.WriteLine("****RECUPERANDO DATOS - ESPERE POR FAVOR!*****");
+            foreach (var customer in customerLogic.GetCustomerRegionWA())
+            {
+                if (estado)
+                {
+                    TableGraphic.PrintLine();
+                    TableGraphic.PrintRow("ID", "COMPAÑIA", "DIRECCIÓN",
+                                          "CIUDAD", "REGION");
+                    TableGraphic.PrintLine();
+                    estado = false;
+                }
+                TableGraphic.PrintRow(customer.CustomerID.ToString(), customer.CompanyName,
+                                      customer.Address, customer.City, customer.Region);
+            }
+            TableGraphic.PrintLine();
+            Console.WriteLine("");
+            Console.WriteLine("Presione Enter para volver al menu..");
+            Console.ReadLine();
         }
         #endregion
 
