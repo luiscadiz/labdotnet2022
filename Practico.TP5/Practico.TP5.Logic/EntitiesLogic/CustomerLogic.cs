@@ -66,7 +66,7 @@ namespace Practico.TP5.Logic
         #endregion
 
         #region Exercise 13
-
+        //Falta terminar ejercicio 13
         #endregion
     }
 }

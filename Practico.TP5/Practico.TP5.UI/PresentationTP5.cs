@@ -64,6 +64,7 @@ namespace Practico.TP5.UI
             }
         }
 
+        #region Option 1
         private void OptionOne()
         {
             
@@ -71,6 +72,10 @@ namespace Practico.TP5.UI
             ShowTableCustomer();
             
         }
+
+        #endregion 
+
+        #region Option 2
 
         private void OptionTwo()
         {
@@ -88,7 +93,7 @@ namespace Practico.TP5.UI
                     TableGraphic.PrintLine();
                     estado = false;
                 }
-                TableGraphic.PrintRow(product.ProductID.ToString(),product.ProductName,
+                TableGraphic.PrintRow(product.ProductID.ToString(), product.ProductName,
                                       product.UnitsInStock.ToString(), product.UnitPrice.ToString());
             }
             TableGraphic.PrintLine();
@@ -96,6 +101,9 @@ namespace Practico.TP5.UI
             Console.WriteLine("Presione Enter para volver al menu..");
             Console.ReadLine();
         }
+        #endregion
+
+        #region Option 3
 
         private void OptionThree()
         {
@@ -123,13 +131,17 @@ namespace Practico.TP5.UI
             Console.ReadLine();
         }
 
+        #endregion
+
+        #region Option 4
         private void OptionFour()
         {
-           
             Console.WriteLine("4. Query para devolver todos los customers de la Región WA.");
             ShowTableCustomer();
         }
+        #endregion
 
+        #region Option 5
         private void OptionFive()
         {
             try
@@ -148,7 +160,9 @@ namespace Practico.TP5.UI
                 Console.ReadLine();
             }
         }
+        #endregion
 
+        #region Option 6
         private void OptionSix()
         {
             bool estado = true;
@@ -173,7 +187,9 @@ namespace Practico.TP5.UI
             Console.WriteLine("Presione Enter para volver al menu..");
             Console.ReadLine();
         }
+        #endregion
 
+        #region Option 7
         private void OptionSeven()
         {
             bool estado = true;
@@ -199,6 +215,7 @@ namespace Practico.TP5.UI
             Console.WriteLine("Presione Enter para volver al menu..");
             Console.ReadLine();
         }
+        #endregion
 
         private void ShowTableCustomer()
         {
