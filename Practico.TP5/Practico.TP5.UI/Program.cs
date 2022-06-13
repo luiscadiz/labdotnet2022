@@ -12,22 +12,8 @@ namespace Practico.TP5.UI
     {
         static void Main(string[] args)
         {
-            var customerLogic = new CustomerLogic();
-            var productLogic = new ProductsLogic();
-
-            //foreach (var customer in customerLogic.GetAll())
-            //{
-            //    Console.WriteLine($"{customer.CompanyName} - {customer.ContactName}");
-            //}
-
-            foreach (var customerOrder in customerLogic.GetCustomersJoinOrders())
-            {
-                Console.WriteLine($"{customerOrder.Customer.Region} - {customerOrder.Order.OrderDate}");
-            }
-
-            Console.ReadLine();
-
-
+            var practicoTP5 = new PresentationTP5();
+            practicoTP5.Start();
         }
     }
 }

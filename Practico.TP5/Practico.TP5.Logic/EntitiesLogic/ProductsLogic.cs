@@ -10,10 +10,10 @@ namespace Practico.TP5.Logic
     public class ProductsLogic: BaseLogic
     {
         #region Exercise 2
-        public IQueryable<Products> GetProductsWithoutStock()
+        public List<Products> GetProductsWithoutStock()
         {
             var queryProductWithoutStock = _context.Products.Where(prod => prod.UnitsInStock == 0);
-            return queryProductWithoutStock;
+            return queryProductWithoutStock.ToList();
         }
         #endregion
 
