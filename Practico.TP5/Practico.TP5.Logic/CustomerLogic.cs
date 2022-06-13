@@ -57,5 +57,16 @@ namespace Practico.TP5.Logic
             return queryGetCustomersJoinOrders.ToList();
         }
         #endregion
+
+        #region Exercise 8
+        public List<Customers> GetFirstThreeCustomersWithRegionWA()
+        {
+            return _context.Customers.Where(c => c.Region == "WA").Take(3).ToList();
+        }
+        #endregion
+
+        #region Exercise 13
+
+        #endregion
     }
 }
