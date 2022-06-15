@@ -14,7 +14,8 @@ const expressions = {
 const campos = {
     form__name: false,
     form__last_name: false,
-    form__business: false
+    form__business: false,
+    form__date_age: false
 }
 
 const validateForm = (e) => {
@@ -26,7 +27,7 @@ const validateForm = (e) => {
             validateInput(expressions.names,e.target,'form__last_name');
             break
         case "date":
-            validateInputAge(e.target); 
+            validateInputAge(e.target, 'form__date_age'); 
             break
         case "business":
             validateInput(expressions.names,e.target,'form__business'); 
@@ -46,13 +47,20 @@ validateInput = (expresion, input, campo) => {
 
 
 //Validad edades permitidas de entre 10 a 110 años
-validateInputAge = (input => {
+validateInputAge = ((input, campo)=> {
     let agePerson = getAge(input.value)
     let ageValid = ( agePerson >= 10 && agePerson <= 120)
     if(ageValid)
-        document.getElementById('form__date_age').innerHTML = `Tienes ${agePerson} años.`; 
+    {
+        document.getElementById(campo).innerHTML = `Tienes ${agePerson} años.`; 
+        campos[campo] = true;
+    }   
     else
-        document.getElementById('form__date_age').innerHTML = `Fecha no valida`;
+    {
+        document.getElementById(campo).innerHTML = `Fecha no valida`;
+        campos[campo] = false;
+    }
+        
 })
 
 // Verifica cada caracter ingresado para hacer la validación.
@@ -66,13 +74,12 @@ inputs.forEach((input) => {
 form.addEventListener('submit', (e) => {
     e.preventDefault();
    
-    let validaCampos = campos.form__name && campos.form__last_name && campos.form__business;
-    console.log()
+    let validaCampos = campos.form__name && campos.form__last_name && campos.form__business && campos.form__date_age;
     if(validaCampos)
     {
-        alert("Formulario enviado exitosamente!");
+        // alert("Formulario enviado exitosamente!");
         document.getElementById('form__mensaje-error').style.display = 'none';
-        // document.getElementById('form__mensaje-exito').style.display = 'block';
+        document.getElementById('form__mensaje-exito').style.display = 'block';
     }
     else{
         document.getElementById('form__mensaje-error').style.display = 'block';
