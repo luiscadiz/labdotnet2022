@@ -17,27 +17,34 @@ body{
     /* background: #706c6c; */
     margin: 20px auto;
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     /* border-radius: 15px; */
-    /* box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%); */
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
     text-align: center;
     font-size: 14px;
 }
 
 .fieldset{
    background-color: #fff;
-   width: 100%;
+   width: 80%;
    padding-bottom: 20px;
-   padding-left: 30px;
-   padding-right: 30px;
+   padding-left: 40px;
+   padding-right: 40px;
    padding-top: 20px;
    border-radius: 10px;
    margin-bottom: 20px;
 }
 
 .form__title{
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
     font-size: 18px;
+    font-weight: bold;
+}
+
+.title__check{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #3866f2
 }
 
 .form__container{
@@ -102,12 +109,31 @@ body{
 .form__checks .form__group input{
     cursor: pointer;
 }
-.form__submit{
+/* .form__submit{
     background: #3866f2;
     width: 40%;
     color: #fff;
     font-family: 'Roboto', sans-serif;
-    /* font-weight: 200; */
+    font-weight: 200;
+    font-size: .9rem;
+    padding: .5rem;
+    border: none;
+    border-radius: .5em;
+    cursor: pointer;
+} */
+
+
+.form_buttons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.form_btn{
+    background: #3866f2;
+    width: 40%;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
     font-size: .9rem;
     padding: .5rem;
     border: none;
@@ -125,11 +151,6 @@ body{
     transform: scale(0);
     transform: left bottom;
     transition: transform .4s;
-}
-
-.form_buttons{
-    display: flex;
-    justify-content: space-around;
 }
 
 .form__input:focus ~ .form__line,
@@ -154,5 +175,10 @@ body{
 
 .form__mensaje-exito, .form__mensaje-error{
     display: none;
+    color: green;
     animation: shake 300ms;
+}
+
+.form__mensaje-error{
+    color: red;
 }

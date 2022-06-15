@@ -25,9 +25,12 @@ const validateForm = (e) => {
         case "lastName":
             validateInput(expressions.names,e.target,'form__last_name');
             break
+        case "date":
+            validateInputAge(e.target); 
+            break
         case "business":
             validateInput(expressions.names,e.target,'form__business'); 
-            break
+            break 
    }
 }
 
@@ -41,14 +44,25 @@ validateInput = (expresion, input, campo) => {
     }
 }
 
-//Verifica cada caracter ingresado para hacer la validación.
+
+//Validad edades permitidas de entre 10 a 110 años
+validateInputAge = (input => {
+    let agePerson = getAge(input.value)
+    let ageValid = ( agePerson >= 10 && agePerson <= 120)
+    if(ageValid)
+        document.getElementById('form__date_age').innerHTML = `Tienes ${agePerson} años.`; 
+    else
+        document.getElementById('form__date_age').innerHTML = `Fecha no valida`;
+})
+
+// Verifica cada caracter ingresado para hacer la validación.
 inputs.forEach((input) => {
     input.addEventListener('keyup', validateForm);
     input.addEventListener('blur', validateForm);
 })
 
 
-//Validación del submit
+//Validación de los campos al hacer el submit
 form.addEventListener('submit', (e) => {
     e.preventDefault();
    
@@ -56,8 +70,9 @@ form.addEventListener('submit', (e) => {
     console.log()
     if(validaCampos)
     {
+        alert("Formulario enviado exitosamente!");
         document.getElementById('form__mensaje-error').style.display = 'none';
-        document.getElementById('form__mensaje-exito').style.display = 'block';
+        // document.getElementById('form__mensaje-exito').style.display = 'block';
     }
     else{
         document.getElementById('form__mensaje-error').style.display = 'block';
@@ -65,8 +80,20 @@ form.addEventListener('submit', (e) => {
     
 })
 
+//Funcionalidad para limpiar la pantalla
 btn_clean.addEventListener('click', (e) => {
     e.preventDefault();
     form.reset();
 })
 
+
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
