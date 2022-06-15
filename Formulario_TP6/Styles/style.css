@@ -10,7 +10,7 @@ body{
     font-family: 'Roboto', sans-serif;
     background-color: #e5e5f7;
     opacity: 0.8;
-    /* padding-top: 20px; */
+    padding-top: 20px;
 }
 
 .form{
@@ -21,12 +21,12 @@ body{
     /* border-radius: 15px; */
     /* box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%); */
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .fieldset{
    background-color: #fff;
-   width: 80%;
+   width: 100%;
    padding-bottom: 20px;
    padding-left: 30px;
    padding-right: 30px;
@@ -41,9 +41,9 @@ body{
 }
 
 .form__container{
-    margin-top: .5rem;   
+    margin-top: .6rem;   
     display: grid;
-    gap: 2em;
+    gap: 2.5em;
 }
 
 .form__group{
