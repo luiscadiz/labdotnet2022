@@ -58,7 +58,7 @@ namespace App.TP4.Logic
                 supplierUpdate.Phone = newSupplier.Phone;
                 _context.SaveChanges();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 throw new IdErrorExeption();
             }  

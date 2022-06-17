@@ -1,0 +1,33 @@
+﻿@model  List<App.TP7.MVC.Models.SupplierView>
+
+@{ 
+    ViewBag.Title = "Razor Page";
+}
+
+<h1>Soy el index de Supplier</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var supplier in Model)
+        {
+            <tr>
+                <th scope="row">@supplier.Id</th>
+                <td>@supplier.NameCompany</td>
+                <td>@Html.ActionLink("Borrar","Delete", new { id = supplier.Id},
+                   new { onclick = "return confirm('Estas seguro de borrar?')"})</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Inserar nueva region", "Insert", "Supplier");
+
+</div>

@@ -1,0 +1,14 @@
+﻿@model  App.TP7.MVC.Models.SupplierView
+
+@{
+    ViewBag.Title = "Razor Page";
+}
+
+<h1>Vista para insertar</h1>
+
+@using (Html.BeginForm("Insert", "Supplier", FormMethod.Post))
+{
+    <label>Description: </label> @Html.TextBoxFor(r => r.NameCompany)
+
+    <input type="submit" class="btn btn-success" value="Guardar"/>
+}
