@@ -175,6 +175,7 @@
     <Content Include="Views\Supplier\Index.cshtml" />
     <Content Include="Views\Supplier\Insert.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Shared\_LayoutTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
