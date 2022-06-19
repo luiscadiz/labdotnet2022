@@ -133,6 +133,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Request\SupplierRequestView.cs" />
+    <Compile Include="Models\Response\SupplierResponseView.cs" />
     <Compile Include="Models\SupplierView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -141,6 +143,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\DataTable\css\datatables.min.css" />
+    <Content Include="Content\DataTable\js\datatables.min.js" />
     <Content Include="Content\Template\stylesTemplate.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -148,6 +152,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\DataTable\js\dataTable-ES.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -159,6 +164,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\scriptModal.js" />
     <Content Include="Scripts\scriptsTemplate.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -175,9 +181,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Supplier\Index.cshtml" />
-    <Content Include="Views\Supplier\Insert.cshtml" />
+    <Content Include="Views\Supplier\Create.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Shared\_LayoutTemplate.cshtml" />
+    <Content Include="Views\Supplier\Edit.cshtml" />
+    <Content Include="Views\Supplier\_Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -203,6 +211,10 @@
     <ProjectReference Include="..\App.TP4.Logic\App.TP4.Logic.csproj">
       <Project>{8ded25f8-434d-4523-8b57-a2ab07d79f6e}</Project>
       <Name>App.TP4.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\App.TP7.Service\App.TP7.Service.csproj">
+      <Project>{d8f7933c-29e5-40c5-862d-7349bd1ef2f4}</Project>
+      <Name>App.TP7.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

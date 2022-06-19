@@ -14,6 +14,18 @@ namespace App.TP4.Logic
             return _context.Suppliers.ToList();
         }
 
+        public Suppliers GetById(int id)
+        {
+            try
+            {
+                return _context.Suppliers.Where(s => s.SupplierID == id).First();
+            }
+            catch(ArgumentNullException)
+            {
+                throw new IdErrorExeption();
+            }
+        }
+
         public void Insert(Suppliers newSupplier)
         {
             //Genera un nuevo ID a partir del ultimo encontrado

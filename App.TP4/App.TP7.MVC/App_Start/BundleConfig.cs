@@ -29,6 +29,13 @@ namespace App.TP7.MVC
 
             bundles.Add(new StyleBundle("~/Content/Template/css").Include(
                      "~/Content/Template/stylesTemplate.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Plugin/css").Include(
+                     "~/Content/DataTable/css/datatables.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Plugin/js").Include(
+                     "~/Content/DataTable/js/datatables.min.js",
+                     "~/Content/DataTable/js/dataTable-Es.json"));
         }
     }
 }
