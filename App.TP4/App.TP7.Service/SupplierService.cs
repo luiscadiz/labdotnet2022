@@ -61,11 +61,11 @@ namespace App.TP7.Service
             }
         }
 
-        public void UpdateSupplier(Suppliers supplier, int id)
+        public void UpdateSupplier(Suppliers supplier)
         {
             try
             {
-                supplierLogic.Update(supplier, id);
+                supplierLogic.Update(supplier);
             }
             catch(Exception ex)
             {

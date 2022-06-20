@@ -76,6 +76,23 @@ namespace App.TP4.Logic
             }  
         }
 
+        public void Update(Suppliers newSupplier)
+        {
+            try
+            {
+                var supplierUpdate = _context.Suppliers.Find(newSupplier.SupplierID);
+                supplierUpdate.CompanyName = newSupplier.CompanyName;
+                supplierUpdate.Address = newSupplier.Address;
+                supplierUpdate.City = newSupplier.City;
+                supplierUpdate.Phone = newSupplier.Phone;
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw new IdErrorExeption();
+            }
+        }
+
         public int GetLastID()
         {
             return _context.Suppliers.Max(x => x.SupplierID);

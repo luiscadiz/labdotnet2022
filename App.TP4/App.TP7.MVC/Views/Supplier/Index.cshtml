@@ -45,7 +45,8 @@
                     <a href="@Url.Action("Edit","Supplier", new {id = supplier.Id})" class="btn btn-dark">
                         <i class="fas fa-edit"></i>
                     </a>
-                    <a href="@Url.Action("Delete","Supplier", new {id = supplier.Id})" class="btn btn-danger">
+                    <a href="@Url.Action("Delete","Supplier", new {id = supplier.Id})" onclick="return confirm('Está seguro que desea borrar?')"
+                        class="btn btn-danger">
                         <i class="fa fa-trash"></i>
                     </a>
                 </td>
@@ -53,7 +54,6 @@
         }
     </tbody>
 </table>
-
 
 
 @section scripts{

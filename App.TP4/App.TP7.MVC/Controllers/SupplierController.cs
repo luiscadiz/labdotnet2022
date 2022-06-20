@@ -74,15 +74,55 @@ namespace App.TP7.MVC.Controllers
             }
         }
 
+        //GET: Supplier/Edit
         public ActionResult Edit(int id)
         {
-            return View();
+            var supplier = Service.GetSupplierById(id);
+            var supplierEdit = new SupplierRequestView()
+            {
+                NameCompany = supplier.CompanyName,
+                Address = supplier.Address,
+                City = supplier.City,
+                Phone = supplier.Phone
+            };
+            return View(supplierEdit);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(SupplierResponseView supplierModel)
+        {
+            try
+            {
+                var supplierEdit = new Suppliers
+                {
+                    SupplierID = supplierModel.Id,
+                    CompanyName = supplierModel.NameCompany,
+                    Address = supplierModel.Address,
+                    City = supplierModel.City,
+                    Phone = supplierModel.Phone
+                };
+
+                Service.UpdateSupplier(supplierEdit);
+
+                return RedirectToAction("ListAll");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Index", "Error");
+            }
         }
 
         public ActionResult Delete(int id)
         {
-            Service.DeleteSupplier(id);
-            return RedirectToAction("ListAll");
+            try
+            {
+                Service.DeleteSupplier(id);
+                return RedirectToAction("ListAll");
+            }
+            catch(Exception)
+            {
+                return RedirectToAction("Index", "Error");
+            }
         }
     }
 }

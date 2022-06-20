@@ -12,7 +12,7 @@ namespace App.TP7.Service
         List<Suppliers> GetAllSuppliers();
         void AddSupplier(Suppliers supplier);
         void DeleteSupplier(int id);
-        void UpdateSupplier(Suppliers supplier, int id);
+        void UpdateSupplier(Suppliers supplier);
         Suppliers GetSupplierById(int id);
     }
 }
