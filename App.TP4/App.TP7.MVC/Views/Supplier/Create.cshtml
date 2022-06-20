@@ -32,7 +32,6 @@
         @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Address, new { htmlAttibutes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -40,7 +39,6 @@
         @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.City, new { htmlAttibutes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -59,4 +57,9 @@
 
     </div>
 </div>
+}
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
 }

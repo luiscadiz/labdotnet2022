@@ -13,8 +13,8 @@ namespace App.TP7.MVC.Models
         [Required]
         public int Id { get; set; }
 
-        [Display(Name = "Compañia")]
-        [Required]
+        [Display(Name = "Compañia (*)")]
+        [Required(ErrorMessage = "El nombre de la compañia es obligatorio")]
         public string NameCompany { get; set; }
 
         [Display(Name = "Dirección")]
@@ -25,8 +25,9 @@ namespace App.TP7.MVC.Models
         [StringLength(60)]
         public string City { get; set; }
 
-        [Display(Name = "Telefono")]
+        [Display(Name = "Telefono (*)")]
         [StringLength(24)]
+        [Required(ErrorMessage = "El telefono es obligatorio")]
         public string Phone { get; set; }
     }
 }

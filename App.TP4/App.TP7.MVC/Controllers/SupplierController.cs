@@ -54,7 +54,8 @@ namespace App.TP7.MVC.Controllers
         [HttpPost]
         public ActionResult Create(SupplierResponseView suppplerView)
         {
-            try
+
+            if (ModelState.IsValid)
             {
                 var supplierEntity = new Suppliers
                 {
@@ -63,15 +64,12 @@ namespace App.TP7.MVC.Controllers
                     City = suppplerView.City,
                     Phone = suppplerView.Phone
                 };
-
                 Service.AddSupplier(supplierEntity);
-
                 return RedirectToAction("ListAll");
             }
-            catch (Exception)
-            {
-                return RedirectToAction("Index", "Error");
-            }
+
+            return RedirectToAction("Index", "Error");
+
         }
 
         //GET: Supplier/Edit
