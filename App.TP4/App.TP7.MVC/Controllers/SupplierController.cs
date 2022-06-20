@@ -21,7 +21,7 @@ namespace App.TP7.MVC.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("ListAll");
         }
 
         // GET: Supplier
