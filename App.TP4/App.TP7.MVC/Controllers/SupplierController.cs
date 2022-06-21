@@ -29,7 +29,7 @@ namespace App.TP7.MVC.Controllers
         {
             try
             {
-                var suppliersList = Service.GetAllSuppliers().Select(s => new SupplierResponseView
+                var suppliersList = Service.GetAllSuppliers().Select(s => new SupplierView
                 {
                     Id = s.SupplierID,
                     NameCompany = s.CompanyName,
@@ -48,11 +48,14 @@ namespace App.TP7.MVC.Controllers
         
         public ActionResult Create()
         {
-            return View();
+            //Paso un modelo con un id 0 por defecto en caso de crear un nuevo prooveedor
+            var supplierId = new SupplierView();
+            supplierId.Id = 0;
+            return View(supplierId);
         }
 
         [HttpPost]
-        public ActionResult Create(SupplierResponseView suppplerView)
+        public ActionResult Create(SupplierView suppplerView)
         {
 
             if (ModelState.IsValid)
@@ -64,51 +67,71 @@ namespace App.TP7.MVC.Controllers
                     City = suppplerView.City,
                     Phone = suppplerView.Phone
                 };
-                Service.AddSupplier(supplierEntity);
-                return RedirectToAction("ListAll");
+
+                if (suppplerView.Id == 0)
+                {
+                   
+
+                    Service.AddSupplier(supplierEntity);
+                }
+                else
+                {
+                    var supplierUpdate = new Suppliers
+                    {
+                        SupplierID = suppplerView.Id,
+                        CompanyName = suppplerView.NameCompany,
+                        Address = suppplerView.Address,
+                        City = suppplerView.City,
+                        Phone = suppplerView.Phone
+                    };
+                    Service.UpdateSupplier(supplierUpdate);
+                }
+                return RedirectToAction("ListAll", "Supplier");
+
+            }else
+            {
+                return RedirectToAction("Index", "Error");
             }
-
-            return RedirectToAction("Index", "Error");
-
         }
 
         //GET: Supplier/Edit
         public ActionResult Edit(int id)
         {
             var supplier = Service.GetSupplierById(id);
-            var supplierEdit = new SupplierRequestView()
+            var supplierEdit = new SupplierView()
             {
+                Id = supplier.SupplierID,
                 NameCompany = supplier.CompanyName,
                 Address = supplier.Address,
                 City = supplier.City,
                 Phone = supplier.Phone
             };
-            return View(supplierEdit);
+            return View("Create",supplierEdit);
         }
 
-        [HttpPost]
-        public ActionResult Edit(SupplierResponseView supplierModel)
-        {
-            try
-            {
-                var supplierEdit = new Suppliers
-                {
-                    SupplierID = supplierModel.Id,
-                    CompanyName = supplierModel.NameCompany,
-                    Address = supplierModel.Address,
-                    City = supplierModel.City,
-                    Phone = supplierModel.Phone
-                };
+        //[HttpPost]
+        //public ActionResult Edit(SupplierResponseView supplierModel)
+        //{
+        //    try
+        //    {
+        //        var supplierEdit = new Suppliers
+        //        {
+        //            SupplierID = supplierModel.Id,
+        //            CompanyName = supplierModel.NameCompany,
+        //            Address = supplierModel.Address,
+        //            City = supplierModel.City,
+        //            Phone = supplierModel.Phone
+        //        };
 
-                Service.UpdateSupplier(supplierEdit);
+        //        Service.UpdateSupplier(supplierEdit);
 
-                return RedirectToAction("ListAll");
-            }
-            catch (Exception)
-            {
-                return RedirectToAction("Index", "Error");
-            }
-        }
+        //        return RedirectToAction("ListAll");
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return RedirectToAction("Index", "Error");
+        //    }
+        //}
 
         public ActionResult Delete(int id)
         {
