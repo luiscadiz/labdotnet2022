@@ -60,31 +60,20 @@ namespace App.TP7.MVC.Controllers
 
             if (ModelState.IsValid)
             {
-                var supplierEntity = new Suppliers
-                {
-                    CompanyName = suppplerView.NameCompany,
-                    Address = suppplerView.Address,
-                    City = suppplerView.City,
-                    Phone = suppplerView.Phone
-                };
-
                 if (suppplerView.Id == 0)
                 {
-                   
-
-                    Service.AddSupplier(supplierEntity);
-                }
-                else
-                {
-                    var supplierUpdate = new Suppliers
+                    var supplierEntity = new Suppliers
                     {
-                        SupplierID = suppplerView.Id,
                         CompanyName = suppplerView.NameCompany,
                         Address = suppplerView.Address,
                         City = suppplerView.City,
                         Phone = suppplerView.Phone
                     };
-                    Service.UpdateSupplier(supplierUpdate);
+                    Service.AddSupplier(supplierEntity);
+                }
+                else
+                {
+                    UpdatePost(suppplerView);
                 }
                 return RedirectToAction("ListAll", "Supplier");
 
@@ -92,6 +81,19 @@ namespace App.TP7.MVC.Controllers
             {
                 return RedirectToAction("Index", "Error");
             }
+        }
+
+        private void UpdatePost(SupplierView supplierView)
+        {
+            var supplierUpdate = new Suppliers
+            {
+                SupplierID = supplierView.Id,
+                CompanyName = supplierView.NameCompany,
+                Address = supplierView.Address,
+                City = supplierView.City,
+                Phone = supplierView.Phone
+            };
+            Service.UpdateSupplier(supplierUpdate);
         }
 
         //GET: Supplier/Edit
