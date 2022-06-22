@@ -47,10 +47,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ISuppliersService.cs" />
+    <Compile Include="RickAndMortyService.cs" />
     <Compile Include="SupplierService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\App.TP4.Data\App.TP4.Data.csproj">
+      <Project>{8296dfda-614f-4da8-a862-447cc075d590}</Project>
+      <Name>App.TP4.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App.TP4.Entities\App.TP4.Entities.csproj">
       <Project>{83c554a3-329c-49e2-9d5d-4666ed244c4d}</Project>
       <Name>App.TP4.Entities</Name>

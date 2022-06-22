@@ -10,13 +10,13 @@
                 <td><b></b>Genero</td>
                 <td><b>Foto</b></td>
             </tr>
-            @foreach(var personaje in Model.results)
+            @foreach(var personaje in Model)
             {
             <tr>
-                <td>@personaje.name</td>
-                <td>@personaje.species</td>
-                <td>@personaje.gender</td>
-                <td><img src="@personaje.image" alt="load..." /></td>
+                <td>@personaje.Name</td>
+                <td>@personaje.Species</td>
+                <td>@personaje.Gender</td>
+                <td><img src="@personaje.UrlImage" alt="load..." /></td>
             </tr>
             }
         </table>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Newtonsoft;
 
 namespace App.TP8.WebAPI
 {
@@ -10,7 +11,9 @@ namespace App.TP8.WebAPI
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            var Json = config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling;
+            Json = Newtonsoft.Json.PreserveReferencesHandling.Objects;
             // Web API routes
             config.MapHttpAttributeRoutes();
 

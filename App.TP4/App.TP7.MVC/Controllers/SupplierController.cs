@@ -50,7 +50,7 @@ namespace App.TP7.MVC.Controllers
         {
             //Paso un modelo con un id 0 por defecto en caso de crear un nuevo prooveedor
             var supplierId = new SupplierView();
-            supplierId.Id = 0;
+            //supplierId.Id = 0;
             return View(supplierId);
         }
 

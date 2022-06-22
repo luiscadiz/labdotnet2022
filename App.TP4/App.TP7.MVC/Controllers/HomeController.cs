@@ -3,28 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Text;
-using Newtonsoft;
-using System.Net.Http;
-using System.Threading.Tasks;
-using App.TP7.MVC.Models;
-using Newtonsoft.Json;
-using App.TP4.Entities;
-using System.Net;
+using App.TP4.Logic;
+
 
 namespace App.TP7.MVC.Controllers
 {
     public class HomeController : Controller
     {
+
+        RickAndMortyLogic rickAndMortylogic = new RickAndMortyLogic();
+
+        // GET: RickAndMoty
         public ActionResult Index()
         {
-            var url = "https://rickandmortyapi.com/api/character";
-            WebClient client = new WebClient();
-            var datos = client.DownloadString(url);
-            var lista = JsonConvert.DeserializeObject<ModelsRickAndMortyView>(datos);
-            return View(lista);
+            var listCharacters = rickAndMortylogic.GetCharacters();
 
+            return View(listCharacters);
         }
+
 
         public ActionResult About()
         {
