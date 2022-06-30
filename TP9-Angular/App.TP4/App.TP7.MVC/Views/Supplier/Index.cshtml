@@ -1,0 +1,262 @@
+﻿@model  List<App.TP7.MVC.Models.SupplierView>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>*@
+
+<h1 class="mt-4"></h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+    <li class="breadcrumb-item active"><a href="@Url.Action("ListAll","Supplier")">Proveedores</a></li>
+</ol>
+
+<p>
+    <a id="btnNuevo"  class="btn btn-success" href="@Url.Action("Create","Supplier")">
+        <i class="fa fa-plus"></i>
+        Nuevo Proveedor
+    </a>
+</p>
+
+
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var supplier in Model)
+        {
+            <tr>
+                <th scope="row">@supplier.Id</th>
+                <td>@supplier.NameCompany</td>
+                <td>@supplier.Address</td>
+                <td>@supplier.City</td>
+                <td>@supplier.Phone</td>
+                <td>
+                    <a href="@Url.Action("Edit","Supplier", new {id = supplier.Id})" class="btn btn-dark">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="@Url.Action("Delete","Supplier", new {id = supplier.Id})" onclick="return confirm('Está seguro que desea borrar?')"
+                        class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTable').DataTable(
+                {
+                    "language": {
+                        "processing": "Procesando...",
+                        "lengthMenu": "Mostrar _MENU_ registros",
+                        "zeroRecords": "No se encontraron resultados",
+                        "emptyTable": "Ningún dato disponible en esta tabla",
+                        "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "search": "Buscar:",
+                        "infoThousands": ",",
+                        "loadingRecords": "Cargando...",
+                        "paginate": {
+                            "first": "Primero",
+                            "last": "Último",
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        },
+
+                        "buttons": {
+                            "copy": "Copiar",
+                            "colvis": "Visibilidad",
+                            "collection": "Colección",
+                            "colvisRestore": "Restaurar visibilidad",
+                            "copyKeys": "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
+                            "copySuccess": {
+                                "1": "Copiada 1 fila al portapapeles",
+                                "_": "Copiadas %ds fila al portapapeles"
+                            },
+
+                            "pdf": "PDF",
+                            "print": "Imprimir",
+                            "renameState": "Cambiar nombre",
+                            "updateState": "Actualizar",
+                            "createState": "Crear Estado",
+                            "removeAllStates": "Remover Estados",
+                            "removeState": "Remover",
+                            "savedStates": "Estados Guardados",
+                            "stateRestore": "Estado %d"
+                        },
+                        "autoFill": {
+                            "cancel": "Cancelar",
+                            "fill": "Rellene todas las celdas con <i>%d<\/i>",
+                            "fillHorizontal": "Rellenar celdas horizontalmente",
+                            "fillVertical": "Rellenar celdas verticalmentemente"
+                        },
+                        "decimal": ",",
+                        "searchBuilder": {
+                            "add": "Añadir condición",
+                            "button": {
+                                "0": "Constructor de búsqueda",
+                                "_": "Constructor de búsqueda (%d)"
+                            },
+                            "clearAll": "Borrar todo",
+                            "condition": "Condición",
+                            "conditions": {
+                                "date": {
+                                    "after": "Despues",
+                                    "before": "Antes",
+                                    "between": "Entre",
+                                    "empty": "Vacío",
+                                    "equals": "Igual a",
+                                    "notBetween": "No entre",
+                                    "notEmpty": "No Vacio",
+                                    "not": "Diferente de"
+                                },
+                                "number": {
+                                    "between": "Entre",
+                                    "empty": "Vacio",
+                                    "equals": "Igual a",
+                                    "gt": "Mayor a",
+                                    "gte": "Mayor o igual a",
+                                    "lt": "Menor que",
+                                    "lte": "Menor o igual que",
+                                    "notBetween": "No entre",
+                                    "notEmpty": "No vacío",
+                                    "not": "Diferente de"
+                                },
+                                "string": {
+                                    "contains": "Contiene",
+                                    "empty": "Vacío",
+                                    "endsWith": "Termina en",
+                                    "equals": "Igual a",
+                                    "notEmpty": "No Vacio",
+                                    "startsWith": "Empieza con",
+                                    "not": "Diferente de",
+                                    "notContains": "No Contiene",
+                                    "notStarts": "No empieza con",
+                                    "notEnds": "No termina con"
+                                },
+                                "array": {
+                                    "not": "Diferente de",
+                                    "equals": "Igual",
+                                    "empty": "Vacío",
+                                    "contains": "Contiene",
+                                    "notEmpty": "No Vacío",
+                                    "without": "Sin"
+                                }
+                            },
+                            "data": "Data",
+                            "deleteTitle": "Eliminar regla de filtrado",
+                            "leftTitle": "Criterios anulados",
+                            "logicAnd": "Y",
+                            "logicOr": "O",
+                            "rightTitle": "Criterios de sangría",
+                            "title": {
+                                "0": "Constructor de búsqueda",
+                                "_": "Constructor de búsqueda (%d)"
+                            },
+                            "value": "Valor"
+                        },
+                        "searchPanes": {
+                            "clearMessage": "Borrar todo",
+                            "collapse": {
+                                "0": "Paneles de búsqueda",
+                                "_": "Paneles de búsqueda (%d)"
+                            },
+                            "count": "{total}",
+                            "countFiltered": "{shown} ({total})",
+                            "emptyPanes": "Sin paneles de búsqueda",
+                            "loadMessage": "Cargando paneles de búsqueda",
+                            "title": "Filtros Activos - %d",
+                            "showMessage": "Mostrar Todo",
+                            "collapseMessage": "Colapsar Todo"
+                        },
+
+                        "thousands": ".",
+                        "datetime": {
+                            "previous": "Anterior",
+                            "next": "Proximo",
+                            "hours": "Horas",
+                            "minutes": "Minutos",
+                            "seconds": "Segundos",
+                            "unknown": "-",
+                            "amPm": [
+                                "AM",
+                                "PM"
+                            ],
+                            "months": {
+                                "0": "Enero",
+                                "1": "Febrero",
+                                "10": "Noviembre",
+                                "11": "Diciembre",
+                                "2": "Marzo",
+                                "3": "Abril",
+                                "4": "Mayo",
+                                "5": "Junio",
+                                "6": "Julio",
+                                "7": "Agosto",
+                                "8": "Septiembre",
+                                "9": "Octubre"
+                            },
+                            "weekdays": [
+                                "Dom",
+                                "Lun",
+                                "Mar",
+                                "Mie",
+                                "Jue",
+                                "Vie",
+                                "Sab"
+                            ]
+                        },
+
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                        "stateRestore": {
+                            "creationModal": {
+                                "button": "Crear",
+                                "name": "Nombre:",
+                                "order": "Clasificación",
+                                "paging": "Paginación",
+                                "search": "Busqueda",
+                                "select": "Seleccionar",
+                                "columns": {
+                                    "search": "Búsqueda de Columna",
+                                    "visible": "Visibilidad de Columna"
+                                },
+                                "title": "Crear Nuevo Estado",
+                                "toggleLabel": "Incluir:"
+                            },
+                            "emptyError": "El nombre no puede estar vacio",
+                            "removeConfirm": "¿Seguro que quiere eliminar este %s?",
+                            "removeError": "Error al eliminar el registro",
+                            "removeJoiner": "y",
+                            "removeSubmit": "Eliminar",
+                            "renameButton": "Cambiar Nombre",
+                            "renameLabel": "Nuevo nombre para %s",
+                            "duplicateError": "Ya existe un Estado con este nombre.",
+                            "emptyStates": "No hay Estados guardados",
+                            "removeTitle": "Remover Estado",
+                            "renameTitle": "Cambiar Nombre Estado"
+                        }
+                    },
+                    "processing": true,
+                    "serverside": true,
+                    "pageLength": 5,
+
+                });
+        });
+    </script>
+
+}
