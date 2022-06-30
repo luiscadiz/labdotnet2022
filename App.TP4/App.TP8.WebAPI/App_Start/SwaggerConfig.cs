@@ -38,7 +38,7 @@ namespace App.TP8.WebAPI
                             .Description("Web Api del TP-4")
                             .Contact(x => x
                                 .Name("Luis Cadiz")
-                                .Url("https://github.com/luiscadiz/labdotnet2022"));
+                                .Url("https://github.com/luiscadiz/labdotnet2022"));    
                         c.SingleApiVersion("v1", "App.TP8.WebAPI - Luis Cadiz");
 
                         // If you want the output Swagger docs to be indented properly, enable the "PrettyPrint" option.
