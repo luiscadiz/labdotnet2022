@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-create',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormCreateComponent implements OnInit {
 
-  constructor() { }
+  public form!: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      empresa: new FormControl('',Validators.required),
+      direccion: new FormControl(''),
+      ciudad: new FormControl(''),
+      telefono: new FormControl('',Validators.required)
+    })
+  }
+
+  guardar(){
+
   }
 
 }
