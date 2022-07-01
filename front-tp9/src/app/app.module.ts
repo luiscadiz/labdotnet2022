@@ -9,13 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { UpdateFormComponent } from './modules/update-form/update-form.component';
 import { FromDeleteComponent } from './modules/from-delete/from-delete.component';
+import { ListSupplierComponent } from './modules/list-supplier/list-supplier.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormCreateComponent,
     UpdateFormComponent,
-    FromDeleteComponent
+    FromDeleteComponent,
+    ListSupplierComponent
   ],
   imports: [  
     BrowserModule,

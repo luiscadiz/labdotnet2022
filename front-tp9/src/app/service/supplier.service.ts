@@ -22,4 +22,14 @@ export class SupplierService {
     let endPoint = 'api/Supplier/';
     return this.http.patch(environment.supplier + endPoint + id, request);
   }
+
+  getSupplier(): Observable<any>{
+    let endPoint = 'api/Supplier';
+    return this.http.get<Supplier>(environment.supplier + endPoint);
+  }
+
+// getSupplier(){
+//     let endPoint = 'api/Supplier';
+//     return this.http.get(environment.supplier + endPoint);
+//   }
 }

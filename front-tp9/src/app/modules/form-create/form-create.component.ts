@@ -35,8 +35,6 @@ export class FormCreateComponent implements OnInit {
     supplier.Phone = this.form.get('telefono')?.value;
 
     this.supplierService.createSupplier(supplier).subscribe(res => {
-      //Acordarme de sacar este console
-      console.log("Se guardo el proveedor" + res);
       this.form.reset();
     });
   }
