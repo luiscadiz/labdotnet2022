@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { FormCreateComponent } from './modules/form-create/form-create.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { UpdateFormComponent } from './modules/update-form/update-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormCreateComponent
+    FormCreateComponent,
+    UpdateFormComponent
   ],
   imports: [  
     BrowserModule,
