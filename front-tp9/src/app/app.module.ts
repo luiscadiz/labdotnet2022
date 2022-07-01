@@ -8,12 +8,14 @@ import { FormCreateComponent } from './modules/form-create/form-create.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { UpdateFormComponent } from './modules/update-form/update-form.component';
+import { FromDeleteComponent } from './modules/from-delete/from-delete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormCreateComponent,
-    UpdateFormComponent
+    UpdateFormComponent,
+    FromDeleteComponent
   ],
   imports: [  
     BrowserModule,

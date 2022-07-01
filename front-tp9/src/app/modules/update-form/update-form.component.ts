@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Supplier } from 'src/app/model/Supplier';
+import { SupplierService } from 'src/app/service/supplier.service';
 
 @Component({
   selector: 'app-update-form',
@@ -7,9 +10,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateFormComponent implements OnInit {
 
-  constructor() { }
+  updateForm!: FormGroup;
+
+  constructor(
+    private fb: FormBuilder,
+    private supplierService: SupplierService
+  ) { }
 
   ngOnInit(): void {
+    this.updateForm = this.fb.group({
+      //Agregar validaciones mas especificas al ultimo
+      id: new FormControl('',Validators.required),
+      empresa: new FormControl('',Validators.required),
+      direccion: new FormControl(''),
+      ciudad: new FormControl(''),
+      telefono: new FormControl('',Validators.required)
+    });
+  }
+
+  onUpdate(): void{
+    var supplier = new Supplier();
+    supplier.Id = this.updateForm.get('id')?.value;
+    supplier.NameCompany = this.updateForm.get('empresa')?.value;
+    supplier.Address = this.updateForm.get('direccion')?.value;
+    supplier.City = this.updateForm.get('ciudad')?.value;
+    supplier.Phone = this.updateForm.get('telefono')?.value;
+
+
+    this.supplierService.updateSupplier(this.updateForm.get('id')?.value,supplier).subscribe(
+      {
+        complete: ()=>{
+          alert("Proveedor modificado");
+          this.updateForm.reset();
+        },
+        error: (e)=>{
+          alert(e.error?.ExceptionMessage ?? e.error);
+        }
+      }
+    );
   }
 
 }

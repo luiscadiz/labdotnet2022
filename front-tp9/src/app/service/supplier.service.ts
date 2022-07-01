@@ -17,4 +17,9 @@ export class SupplierService {
     let endPoint = 'api/Supplier';
     return this.http.post(environment.supplier + endPoint, request);
   }
+
+  updateSupplier(id : number,request: Supplier ){
+    let endPoint = 'api/Supplier/';
+    return this.http.patch(environment.supplier + endPoint + id, request);
+  }
 }
