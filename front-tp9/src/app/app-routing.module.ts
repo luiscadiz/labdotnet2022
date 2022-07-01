@@ -9,19 +9,19 @@ import { UpdateFormComponent } from './modules/update-form/update-form.component
 const routes: Routes = [
   {
     path: '',
-    component: FormCreateComponent
+    component: ListSupplierComponent
   },
   {
     path: 'actualizar',
     component: UpdateFormComponent
   },
   {
-    path: 'delete',
+    path: 'eliminar',
     component: FromDeleteComponent
   },
   {
-    path: 'listar',
-    component: ListSupplierComponent
+    path: 'crear',
+    component: FormCreateComponent
   },
   
 ];

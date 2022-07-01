@@ -10,6 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { UpdateFormComponent } from './modules/update-form/update-form.component';
 import { FromDeleteComponent } from './modules/from-delete/from-delete.component';
 import { ListSupplierComponent } from './modules/list-supplier/list-supplier.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
 
 @NgModule({
   declarations: [
@@ -25,7 +30,10 @@ import { ListSupplierComponent } from './modules/list-supplier/list-supplier.com
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCardModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

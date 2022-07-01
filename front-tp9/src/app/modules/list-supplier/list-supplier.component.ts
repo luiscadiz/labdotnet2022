@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { Supplier } from 'src/app/model/Supplier';
 import { SupplierService } from 'src/app/service/supplier.service';
@@ -10,7 +12,16 @@ import { SupplierService } from 'src/app/service/supplier.service';
 })
 export class ListSupplierComponent implements OnInit {
 
-  public suppliers: Supplier[] = [];
+  displayedColumns: string[] = ["ID","Empresa","Direccion","Ciudad","Telefono"];
+  suppliers: Supplier[] = [];
+  dataSource =  new MatTableDataSource<Supplier>([]);
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
   constructor(private listSupplier: SupplierService) { }
 
   ngOnInit(): void {
@@ -23,8 +34,8 @@ export class ListSupplierComponent implements OnInit {
       })
   }
 
-  // getListSupplier(){
-  //       console.log(this.listSupplier.getSupplier());
-  //   }
+  listarProveedores(){
+      this.dataSource.data = this.suppliers;
+  }
 
 }
