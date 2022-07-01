@@ -18,7 +18,11 @@
                     <label class="text" for="forTelefono">Telefono: </label>
                     <input formControlName="telefono" type="text" class="form-control" id="forTelefono" placeholder="Ejemplo: +54911xxxxxxx">
                 </div>
-                <button type="submit" class="btn btn-primary" (click)="guardar">Guardar</button>
+                <button type="submit" 
+                        class="btn btn-primary" 
+                        (click)="guardar()"
+                        [disabled]="this.form.invalid"
+                >Guardar</button>
             </form>
         </div>
         
