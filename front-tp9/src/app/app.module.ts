@@ -13,6 +13,7 @@ import { ListSupplierComponent } from './modules/list-supplier/list-supplier.com
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { DeleteSupplierComponent } from './modules/delete-supplier/delete-supplier.component';
 
 
 
@@ -22,7 +23,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FormCreateComponent,
     UpdateFormComponent,
     FromDeleteComponent,
-    ListSupplierComponent
+    ListSupplierComponent,
+    DeleteSupplierComponent
   ],
   imports: [  
     BrowserModule,

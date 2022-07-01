@@ -9,27 +9,25 @@ import { Observable } from 'rxjs';
 })
 export class SupplierService {
 
+  private endPoint: string = 'api/Supplier';
+  
   constructor(private http: HttpClient){
     
   }
 
   createSupplier(request: Supplier): Observable<any>{
-    let endPoint = 'api/Supplier';
-    return this.http.post(environment.supplier + endPoint, request);
+    return this.http.post(environment.supplier + this.endPoint, request);
   }
 
   updateSupplier(id : number,request: Supplier ){
-    let endPoint = 'api/Supplier/';
-    return this.http.patch(environment.supplier + endPoint + id, request);
+    return this.http.patch(environment.supplier + this.endPoint + '/' + id, request);
   }
 
   getSupplier(): Observable<any>{
-    let endPoint = 'api/Supplier';
-    return this.http.get<Supplier>(environment.supplier + endPoint);
+    return this.http.get<Supplier>(environment.supplier + this.endPoint);
   }
 
-// getSupplier(){
-//     let endPoint = 'api/Supplier';
-//     return this.http.get(environment.supplier + endPoint);
-//   }
+  deleteSupplier(id: number){
+    return this.http.delete(environment.supplier + this.endPoint + '/' + id );
+  }
 }
