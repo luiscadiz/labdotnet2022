@@ -12,9 +12,8 @@ import { SupplierService } from 'src/app/service/supplier.service';
 export class UpdateFormComponent implements OnInit {
 
   updateForm!: FormGroup;
-
   idSelector!: string;
-  // idSelector: string = 
+
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
