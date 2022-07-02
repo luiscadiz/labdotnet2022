@@ -1,12 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="col-3">
-            <h2>Eliminar proveedor</h2>
+            <h2>¿Esta seguro que desea eliminar este proveedor?</h2>
             <form [formGroup]="formDelete" (ngSubmit)="deleteSupplier()">
                 <div class="form-group">
                     <label class="text" for="formDelete">ID del proveedor a eliminar: </label>
-                    <input formControlName="id" type="text" class="form-control">
+                    <input formControlName="id" type="text" class="form-control" readonly>
                 </div>
+                <hr>
                 <button type="submit" class="btn btn-primary" [disabled]="!this.formDelete.valid">Eliminar</button>
             </form>
         </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Supplier } from 'src/app/model/Supplier';
 import { SupplierService } from 'src/app/service/supplier.service';
 
@@ -12,15 +13,19 @@ export class UpdateFormComponent implements OnInit {
 
   updateForm!: FormGroup;
 
+  idSelector!: string;
+  // idSelector: string = 
   constructor(
+    private route: ActivatedRoute,
     private fb: FormBuilder,
     private supplierService: SupplierService
   ) { }
 
   ngOnInit(): void {
+    this.idSelector = this.route.snapshot.params['id'];
     this.updateForm = this.fb.group({
       //Agregar validaciones mas especificas al ultimo
-      id: new FormControl('',Validators.required),
+      id: new FormControl(this.idSelector,Validators.required),
       empresa: new FormControl('',Validators.required),
       direccion: new FormControl(''),
       ciudad: new FormControl(''),
@@ -43,8 +48,8 @@ export class UpdateFormComponent implements OnInit {
           alert("Proveedor modificado");
           this.updateForm.reset();
         },
-        error: (e)=>{
-          alert(e.error?.ExceptionMessage ?? e.error);
+        error: ()=>{
+          alert("Ocurrio un problema en la actualización..");
         }
       }
     );

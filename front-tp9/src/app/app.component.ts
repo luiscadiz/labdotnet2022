@@ -9,21 +9,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AppComponent {
   title = 'front-tp9';
 
-  constructor(private routers: Router, private route: ActivatedRoute){
-
-  }
-
-  crear(){
-    this.routers.navigate(['crear'],{relativeTo: this.route.parent});
-  }
-
-  editar(){
-
-  }
-
-  eliminar(){
-
-  }
 }
 
 

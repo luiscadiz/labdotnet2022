@@ -2,7 +2,9 @@
     <div class="row">
         <div class="col-12">
             <button class="btn btn-success" (click)="listarProveedores()">Listar Proveedores</button>
+            <button class="btn btn-success" [routerLink]="['/crear']">Nuevo Proveedor</button>
         </div>
+        
     </div>
     <div class="row">
         <div class="col-12">
@@ -39,8 +41,8 @@
                     <ng-container matColumnDef="Opcion">
                         <th mat-header-cell *matHeaderCellDef> Opciones </th>
                         <td mat-cell *matCellDef="let element">
-                            <button mat-raised-button [routerLink]="['/actualizar',2]">Editar</button>
-                            <button mat-raised-button [routerLink]="['/eliminar',2]" color="warn">Eliminar</button>
+                            <button mat-raised-button [routerLink]="['/actualizar',element.Id]">Editar</button>
+                            <button mat-raised-button [routerLink]="['/eliminar',element.Id]" color="warn">Eliminar</button>
                         </td>
                         
                     </ng-container>
