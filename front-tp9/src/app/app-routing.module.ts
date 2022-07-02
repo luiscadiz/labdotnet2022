@@ -13,15 +13,15 @@ const routes: Routes = [
     component: ListSupplierComponent
   },
   {
-    path: 'actualizar',
+    path: 'actualizar/:id',
     component: UpdateFormComponent
   },
   {
-    path: 'eliminar',
+    path: 'eliminar/:id',
     component: DeleteSupplierComponent
   },
   {
-    path: 'crear',
+    path: 'crear', //indica que va a aceptar otra ruta
     component: FormCreateComponent
   },
   

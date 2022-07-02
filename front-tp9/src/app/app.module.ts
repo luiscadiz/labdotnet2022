@@ -14,6 +14,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { DeleteSupplierComponent } from './modules/delete-supplier/delete-supplier.component';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -35,7 +36,8 @@ import { DeleteSupplierComponent } from './modules/delete-supplier/delete-suppli
     AppRoutingModule,
     MatCardModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

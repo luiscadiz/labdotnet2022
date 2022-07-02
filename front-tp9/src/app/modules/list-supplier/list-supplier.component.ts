@@ -12,7 +12,7 @@ import { SupplierService } from 'src/app/service/supplier.service';
 })
 export class ListSupplierComponent implements OnInit {
 
-  displayedColumns: string[] = ["ID","Empresa","Direccion","Ciudad","Telefono"];
+  displayedColumns: string[] = ["ID","Empresa","Direccion","Ciudad","Telefono","Opcion"];
   suppliers: Supplier[] = [];
   dataSource =  new MatTableDataSource<Supplier>([]);
 
